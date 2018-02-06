@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* 通用样式 */
+body,div,p,i,em,span,a,li,ul,dl,dt,dd,h1,h2,h3,h4,h5{ margin:0; padding:0; }
+a{color:#666;text-decoration:none;}
+a:hover{text-decoration:underline;color:#666}
+a:active, a:focus{outline:none}
+.cf:after,.log2 li:after,.log2 li div:after{ content: "."; display: block; height: 0; clear: both; visibility: hidden; font-size:0;}
+.cf,.log2 li,.log2 li div{zoom:1;}
+ 
+
+#v_box{width:760px;height:520px;background:#fff;position:fixed;top:50%;left:50%;z-index:522222;margin-top:-305px;margin-left:-350px;border-radius:5px;box-shadow: #333 0px 0px 10px;_position:absolute;*border:1px solid #333;border:1px solid #333\0;display:none;}
+#v_box h3{color:#333;height:46px;font-size:18px;padding-left:28px;line-height:46px;overflow:hidden;font-weight:bold;}
+#v_box div{width:650px;margin:0 auto;background:#000;}
+#shut{position:absolute;width:30px;height:30px;display:block;top:8px;right:10px;color:#333;font-size:30px;line-height:22px;overflow:hidden;text-align:center;cursor:pointer;}
+#shut:hover{text-decoration:none;color:#f00;}
+#shut:active{color:#a40606;}
+.h1::after{position: absolute;content:'';display: block;height: 6px;width: 220px;border-top:4px dotted #D6D6D6;left: 154px;top: 9px;}
+.li7 span{margin-right:-2px;}
+
+ 

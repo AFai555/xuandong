@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,form,input,textarea,select,img,label{margin:0;padding:0;}
+img{border:0;}
+input,select,label{vertical-align:middle;font-size:12px;}
+textarea{vertical-align:top;}
+a{color:#333;text-decoration:none;outline:none;}
+a:hover{color:#f30;outline:none;}
+div,td{font-size:12px;color:#333;line-height:22px;font-family:verdana;}
+
+#loginbox{width:500px; height:264px; margin:200px auto 0 auto; clear:both; overflow:hidden; background:url(../images/login_line.gif) no-repeat center top;}
+.logo{float:left;width:200px;text-align:right;margin:30px 100px 0 0;}
+.menu{line-height:30px;height:30px;padding:0 5px 0 0;}
+.menu a{color:#3E71B0;padding:5px 0 5px 25px;outline:none;}
+.menu a:hover{color:#f60;}
+.a{background:url(../images/ico_a.gif) no-repeat left; margin-right:10px;}
+.b{background:url(../images/ico_b.gif) no-repeat left;}
+
+.login{float:left;width:200px;margin:45px 0 0 0;}
+.login dl{margin:0;padding:0;}
+.login dl dt{padding:5px 0;}
+.login dl dt img{cursor:pointer;}
+.login dl dd{padding:5px 0 0 8px;}
+.login input{font-family:verdana;border-radius:4px;}
+.login .u{border:1px solid #B4B4B4;border-right:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;width:140px;height:20px;padding:5px 0 2px 5px;*padding:5px 0 0 5px;}
+.login .c{border:1px solid #B4B4B4;border-right:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;width:76px;height:20px;padding:5px 0 2px 5px;*padding:5px 0 0 5px;}
+.login .input{border:1px solid #93B4D2;border-right:1px solid #A3D3FF;border-bottom:1px solid #A3D3FF;}
+.login .lbnt{background:url(../images/login_bnt.gif) no-repeat;border:0;width:57px;height:25px;_height:27px;line-height:25px;text-align:center;color:#3E71B0;font-size:12px;margin:0 5px 0 0;border-radius:0;}
+#errortxt{ color:#FF0000; height:25px; line-height:27px; background:url(../images/icon_del.gif) no-repeat 5px 5px #FFE7E7;  border:1px solid #FF0000; text-indent:28px; margin-bottom:10px; font-weight:bold; display:none; cursor:pointer;}

@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+body{font-size:12px; color:#000; background:url(../images/mediabg.jpg);}
+ol,ul,li,dl,dd{list-style:none;}
+img {border:0;}
+a{color:#000;text-decoration:none} 
+a:hover{color:#B90804;}
+ins{ display:none;}
+
+/*base*/
+.block{ width:1186px; margin:0 auto; position:relative; clear:both;}
+.fl{ float:left;}
+.fr{ float:right;}
+.ml10{ margin-left:10px;}
+.ml45{ margin-left:45px;}
+.clear{ clear:both;}
+
+/*loginBox*/
+.loginBox{ width:680px; margin:130px auto 0px auto; background:#E3E8F3;}
+.loginBox h1{ height:79px; background:url(../images/login_box_top.gif) no-repeat;}
+.loginBox h1 a{ display:block; height:79px; text-indent:-9999px;}
+.loginBox .box{ height:240px;}
+.loginBox .box h2{ font-size:22px; color:#595959; height:50px; line-height:50px; text-align:center;}
+.loginBox .box p{ clear:both; margin-bottom:20px; display:block; width:100%; height:22px; line-height:22px;}
+.loginBox .box p.nop{ margin-bottom:8px;}
+.loginBox .box p.txt{ margin-bottom:8px; text-indent:245px; color:#666666;}
+.loginBox .box p span{ display:block; width:240px; float:left; text-align:right; padding-right:5px;}
+.loginBox .box p input{ border:1px solid #7491C7; height:22px; padding:0px 5px; line-height:22px; width:200px; float:left;}
+.loginBox .box p #errorTxt{ color:#FF0000; float:left; padding-left:10px;}
+.loginBox .box p.sub{ padding-top:10px; width:240px; margin:0px auto;}
+.loginBox .box p.sub input{ color:#3E5F9B; border:1px solid #7491C7; background:#EDF1F8; width:60px; text-align:center; height:26px; line-height:24px; cursor:pointer; float:left; margin-right:8px;}
+.loginBox .box p.sub a{ color:#3E5F9B; border:1px solid #7491C7; background:#EDF1F8; height:24px; line-height:24px; width:160px; float:left; text-align:center;}
+.loginBox .foot{ background:#7691C7; height:33px; line-height:33px; color:#FFFFFF; font-weight:bold; font-size:13px; padding:0px 15px;}
+.loginBox .foot span{ float:right;}

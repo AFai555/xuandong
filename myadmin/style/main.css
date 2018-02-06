@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ color:#333333; font-size:12px; padding:0px; margin:0px;}
+a{ color:#333333; text-decoration:none;}
+a:hover{ color:#FF6600;}
+.menubox{ width:100%; height:40px; line-height:40px; background:url(../images/notice_bg.gif) repeat-x; margin-top:1px; text-indent:15px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.menubox strong{ color:#3F73B3;}
+.title{background:url(../images/title_bg.gif) repeat-x;height:35px;overflow:hidden;clear:both; width:98%; margin:0px auto;}
+.subject{background:url(../images/subject_bg.gif) no-repeat left top;height:35px;line-height:30px;padding:5px 0 0 5px;width:110px;font-size:14px;text-align:center;font-weight:bold;margin:0;}
+.subject span{display:block;background:url(../images/subject_bg.gif) no-repeat right bottom;padding:0 10px;}
+.box{ width:96%; margin:10px auto;}
+.box p{ margin:0px; padding:0px; line-height:27px;}
+.box .t1{ font-size:14px; font-weight:bold; font-family:Verdana, Arial, Helvetica, sans-serif; color:#333333;}
+.box .t2{ font-size:12px; color:#999999;}
+.box .t2 span{ font-family:Verdana, Arial, Helvetica, sans-serif; color:#333333;}
+.box ul{ list-style:none; color:#333; padding:0px; margin:0px; width:100%;}
+.box ul li{ height:30px; line-height:30px; border-bottom:1px solid #EEEEEE; width:49%; float:left; display:inline;}
+.box ul li i{ padding:0px 4px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+.box dl{ padding:0px; margin:0px; list-style:none;}
+.box dl dt{ height:32px; line-height:32px; color:#333; border-bottom:1px solid #EEEEEE; text-indent:35px;}
+.top10px{ margin-top:10px;}

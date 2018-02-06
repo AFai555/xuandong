@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,form,input,textarea,select,img,label{margin:0;padding:0;}
+img{border:0;}
+input,select,label{vertical-align:middle;font-size:12px;}
+textarea{vertical-align:top;}
+a{color:#333;text-decoration:none;outline:none;}
+a:hover{color:#f30;outline:none;}
+div,td{font-size:12px;color:#333;line-height:22px;font-family:verdana;}
+
+#header{background:url(../images/head_bg.gif) repeat-x top;width:100%;min-width:1000px;height:79px;overflow:hidden;}
+#header .logo{background:url(../images/logo.gif) no-repeat top left;float:left;height:79px;padding:10px 0 0 160px}
+#header .logo span{color:#06f;text-decoration:underline;}
+#header .logo dl{margin:15px 0 0 0;}
+#header .logo dl dt{float:left;margin:0 2px 0 0;width:60px;background:url(../images/menu_bg_over.gif) no-repeat center;height:32px;line-height:30px;text-align:center;color:#7B7A7A;cursor:pointer;}
+#header .logo dl dt a{color:#7B7A7A; display:block; height:30px;}
+#header .logo dl .hover{background:#3F73B3;color:#fff;font-size:14px;font-weight:bold;}
+#header .logo dl .hover a{ color:#FFFFFF;}
+#header .nav{float:right;height:57px;display:block;line-height:50px;color:#DCDCDC;margin:0 10px 0 0;}
