@@ -195,7 +195,7 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 					<div class="sortName"><?php echo $row['title']."："?></div>
 
 					<div class="siteBox">
-						<!-- 在这个地方循环网站，li为循环体 -->
+						<!-- 在这个地方循环网站，<li>为循环体 -->
 						<li>
 							<div class="site">
 								<input type="checkbox" value="117">
@@ -215,8 +215,6 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 			</div>
 		<?php }?>
 
-
-			<!-- 原本的分类菜单 -->
 			<!-- <ul>
 				<li>媒体类型</li>
 				<li class="nostyle">---》</li>
