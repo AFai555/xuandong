@@ -1,5 +1,5 @@
 ﻿<?php
-require 'session2.php';
+require 'session.php';
 $vip=_mysql_show("SELECT * FROM vip WHERE id= 1");
 if ($_SESSION['userid']) {
 $price=_mysql_show("select  ( (SELECT if(sum( money) is null,0,sum(money)) FROM `caiwu` WHERE uid = ".$_SESSION['userid']." and lx = 2)-(SELECT if(sum( money) is null,0,sum(money)) FROM `caiwu` WHERE uid = ".$_SESSION['userid']." and lx = 3)) as price from member where  id = ".$_SESSION['userid']);
@@ -42,7 +42,6 @@ if ($_GET['act']=='cart_all_del'){
 function cartBox(){
 if ($_SESSION['userid']) {
 	$r_html='已选择的媒体：<span id="checkbox_select_website_list"></span>';
-	$r_html.='<a href="gaojian_add.php" class="addsub">下一步，提交稿件</a>';
 }else{
 	$r_html.='<a href="login.php" target="_blank" class="addsub">您还未登陆会员</a>';
 }
@@ -109,6 +108,53 @@ if ($_GET['money']!='') {
 	}
 }
 
+// 引入gaojian_add.php 的部分内容
+//购物车内容
+function cartBox2(){
+	$_result=_query("SELECT * FROM cart WHERE uid={$_SESSION['userid']} AND zt=0");
+	global $z_price;
+	$z_price=0;
+	while (!!$row=_mysql_list($_result)) {
+		$r_html.=getDbName('meiti_case','title',$row['pid']).'<em>'.$row['price'].'</em>元 ';
+		$z_price+=$row['price'];
+	}
+	$r_html.='总计<em><strong>'.$z_price.'</strong></em>元 ';
+	return $r_html;
+}
+$cartBoxHtml=cartBox2();
+
+if ($_POST['pn_post']=='立即提交稿件'){
+	$data['title']=$_POST['title'];
+	$data['content']=getcontent($_POST['content']);
+	$data['beizhu']=$_POST['beizhu'];
+	$data['wangzhi']=$_POST['wangzhi'];
+	$data['jiegao']=$_POST['jiegao'];
+	$data['zt']=1;
+	$data['baoimg']='index.php';
+	$data['addtime']=_nowtime();
+	
+	if ($data['title']=='') ShowMsg('错误：稿件标题不能为空！','-1');
+	if ($data['content']=='') ShowMsg('错误：稿件内容不能为空！','-1');
+	if (strlen(strip_tags($data['content']))>30000) {
+		ShowMsg('错误：稿件内容字数不能超过1万字！','-1');
+	}
+	if (strlen(strip_tags($data['beizhu']))>600) {
+		ShowMsg('错误：附言字数不能超过200字！','-1');
+	}
+	if (!_get_one_tj('member',"id={$_SESSION['userid']} AND money>={$z_price}")) ShowMsg('提示：您的余额不足请充值！','-1');
+	_update_tj('cart',$data,"uid={$_SESSION['userid']} AND zt=0");
+	_query("UPDATE member SET money=money-{$z_price} WHERE id='{$_SESSION['userid']}'");
+	
+	$data2['uid']=$_SESSION['userid'];
+	$data2['money']=$z_price;
+	$data2['lx']=2;
+	$data2['beizhu']='稿件"'.$data['title'].'"支出';
+	$data2['addtime']=_nowtime();
+	_insert('caiwu',$data2);
+	
+	ShowMsg('成功：您的稿件已提交成功，金额变化-'.$z_price.'元！','gaojian_admin.php');
+}
+
 
 $sql_seach=$sql_seach." ORDER BY id DESC";
 $sql_seach=" WHERE hide = 0".$sql_seach;
@@ -123,7 +169,9 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.scrollFollow.js"></script>
-
+<script type="text/javascript" src="./myadmin/editor/kindeditor.js"></script>
+<script type="text/javascript" src="./myadmin/editor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="./myadmin/editor/Alleditor.js"></script>
 
 </head>
 
@@ -133,93 +181,56 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
   <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>
-    <div class="add_buzhuo">
-    	<a href="gaojian_list.php" class="online">第一步：选择需要发布的网站媒体</a>
-    	<a href="gaojian_add.php">第二步：添加并提交软文稿件内容</a>
-    	<a href="gaojian_admin.php">第三步：查看软文发布进度结果</a>
-    </div>
+<?php if ($userMoney<$z_price) :?>
+	<div class="tishibox"><strong>* 当前可用余额不足支付<?php echo $z_price?>元,将无法成功发布稿件 <a href="alipay.php">请为您的账号充值</a></strong></div>
+<?php endif ;?>
+
     <div class="meitiBox">
-    	<ul>
-        	<li>媒体类型</li>
-        	<li class="nostyle">---》</li>
-<?php
-$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
-while (!!$row=_mysql_list($_result)) {
-?>
-        	<li><a href="?mid=<?php echo $row['id']?>"><?php echo $row['title']?></a></li>
-<?php }?>
-        	<li><a href="gaojian_list.php">更多...</a></li>
-        </ul>
-        <div class="clear mb10"></div>
-    	<ul>
-        	<li>地区</li>
-        	<li class="nostyle">---》</li>
-<?php
-$_result=_query("SELECT * FROM diqu ORDER BY px_id ASC");
-while (!!$row=_mysql_list($_result)) {
-?>
-        	<li><a href="?diqu=<?php echo $row['id']?>"><?php echo $row['title']?></a></li>
-<?php }?>
-        	<li><a href="gaojian_list.php">更多...</a></li>
-        </ul>
-        <div class="clear mb10"></div>
+	<?php
+		$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
+		while (!!$row=_mysql_list($_result)) {
+		?>
+			<div>
+				<ul>
+					<div class="sortName"><?php echo $row['title']."："?></div>
 
-    	<ul>
-        	<li>综合门户媒体</li>
-        	<li class="nostyle">---》</li>
-<?php
-if (!empty($config_meiti)) {
-	$arr_meiti=explode('、',$config_meiti);
-	foreach ($arr_meiti as $value) {
-?>
-        	<li><a href="?title=<?php echo $value?>"><?php echo $value?></a></li>
-<?php }}?>
-	       	<li><a href="gaojian_list.php">更多...</a></li>
-        </ul>
-        <div class="clear mb10"></div>
-    	<ul>
-        	<li>价格分类媒体</li>
-        	<li class="nostyle">---》</li>
-        	<li><a href="?money=1">0-20元</a></li>
-        	<li><a href="?money=2">20-50元</a></li>
-        	<li><a href="?money=3">50-100元</a></li>
-        	<li><a href="?money=4">100元以上</a></li>
-        	<li><a href="gaojian_list.php">更多...</a></li>
-        </ul>
-         <div class="clear mb10"></div>
+					<div class="siteBox">
+						<!-- 在这个地方循环网站，li为循环体 -->
+						<li>
+							<div class="site">
+								<input type="checkbox" value="117">
+								<span>凤凰网(20.00元)</span>
+							</div>
+						</li>
 
-  </div>
-  <div class="meiti_search">
-<form action="" method="get">
-  	媒体分类
-    <select name="mid">
-    	<option value="">选择</option>
-<?php
-$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
-while (!!$row=_mysql_list($_result)) {
-?>
-        	<option value="<?php echo $row['id']?>"><?php echo $row['title']?></option>
-<?php }?>
-    </select>
-    链接
-    <select name="lianjie">
-    	<option value="">选择</option>
-    	<option value="1">只可以带文本网址</option>
-    	<option value="2">可以加入超链接</option>
-    	<option value="3">不可以添加任何链接</option>
-    </select>
-    收录
-    <select name="shoulu">
-    	<option value="">选择</option>
-    	<option value="1">新闻源收录</option>
-    	<option value="2">网页收录</option>
-    	<option value="3">有可能收录</option>
-    </select>
-    媒体名称
-    <input type="text" name="title" />
-    <input type="submit" value="搜索" class="sub" />
-</form>
-  </div>
+						<li>
+							<div class="site">
+								<input type="checkbox" value="117">
+								<span>凤凰网(20.00元)</span>
+							</div>
+						</li>
+					</div>
+				</ul>
+				<div class="clear mb10"></div>
+			</div>
+		<?php }?>
+
+
+			<!-- 原本的分类菜单 -->
+			<!-- <ul>
+				<li>媒体类型</li>
+				<li class="nostyle">---》</li>
+				<php
+				$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
+				while (!!$row=_mysql_list($_result)) {
+				?>
+							<li><a href="?mid=<php echo $row['id']?>"><php echo $row['title']?></a></li>
+				<php }?>
+							<li><a href="gaojian_list.php">更多...</a></li>
+			</ul> -->
+	</div>
+
+
 <!-- <div class="tishibox">
   
    <td width="353px" align="left"><div class="tishibox1">
@@ -242,8 +253,6 @@ while (!!$row=_mysql_list($_result)) {
   <tr>
     <th width="10%">发布稿件</th>
    <th>媒体频道</th>
-    <th width="8%">分类</th>
-    <th width="8%">地区</th>
     <th width="6%">会员价</th>
       <?php  if ($_SESSION['userid']) { ?>
      <?php if($vip['kd']=='1') {?>  
@@ -261,10 +270,6 @@ while (!!$row=_mysql_list($_result)) {
      
      <?php } ?> 
      <?php } ?>  
-    
-    <th width="15%">链接[仅供参考]</th>
-    <th width="10%">收录[仅供参考]</th>
-    <th width="18%">备注</th>
   </tr>
 <?php
 $sql="SELECT * FROM meiti_case".$sql_seach;
@@ -278,8 +283,6 @@ while (!!$row=_mysql_list($_result)) {
 	选中发布
     </td>
     <td><?php if($row['case_url']=='') :?><?php echo $row['title']?><?php else :?><a href="<?php echo $row['link']?>" target="_blank"><?php echo $row['title']?></a><?php endif ;?>   <?php if($row['case_url']!='') :?><a href="<?php echo $row['case_url']?>" target="_blank">[案例] </a><?php endif ;?></td>
-    <td><a href="?mid=<?php echo $row['mid']?>"><?php echo  getMeiti($row['mid'])?></a></td>
-     <td><a href="?diqu=<?php echo $row['diquid']?>"><?php echo  getdiqu($row['diquid'])?></a></td>
        <?php  if ($_SESSION['userid']) { ?>
    <?php if($vip['kd']=='1') {?>   
      <td><p ><del><?php echo $row['price']?>元</del></p></td>
@@ -300,9 +303,6 @@ while (!!$row=_mysql_list($_result)) {
       <?php } else {?>  
             <td><p class="price"><?php echo $row['price']?>元</p></td>
               <?php } ?>  
-    <td><?php echo lianjie_lx($row['lianjie'])?></td>
-    <td><?php echo shoulu_lx($row['shoulu'])?></td>
-    <td><p class="beizhu"><?php echo $row['beizhu']?></p></td>
   </tr>
  <?php }?>  
   <tr>
@@ -310,10 +310,42 @@ while (!!$row=_mysql_list($_result)) {
     </tr>
 </table>
 
+<form action="" method="post">
+<div class="main" style="width: 100%;">
+<div class="add_buzhuo">
+    	<a href="gaojian_list.php" class="online">方式一：创建新的软文</a>
+    	<a href="gaojian1_add.php" >方式二：从发布列表选择</a>
+    	<a href="gaojian2_add.php">方式三：提交WORD文档稿件</a>
+    	<a href="gaojian3_add.php">方式四：转载来源</a>
+    </div>
+    <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">
+      <tr>
+        <td width="120" height="40"><p class="mc">所选媒体</p></td>
+        <td><p class="mc"><?php echo $cartBoxHtml?></p></td>
+      </tr>
+      <tr>
+        <td height="40"><p class="mc">文章标题<em>*必填
+</em></p></td>
+        <td><p class="mc"><input name="title" type="text" size="80" maxlength="28" />
+        （标题字数应小于28个汉字）</p></td>
+      </tr>
+      <tr>
+        <td height="450"><p class="mc">文章正文<em>*必填</em></p></td>
+        <td>
+        <p class="mc"><textarea name="content" class="editor_content" id="content"></textarea>
+        </p>
+        <p class="mc pt10">友情提示:1.禁止负面、违法、政治敏感内容！2.发布后不可修改或删除！3.最好不要带网址，带网址有可能被拒稿且带图片不超三张</p>        </td>
+      </tr>
+    </table>
+    <?php if ($userMoney<$z_price) :?>
+    <div class="addSub"><span>当前余额不足，无法提交稿件</span></div>
+    <?php else :?>
+    <div class="addSub"><input type="submit" name="pn_post" value="立即提交稿件" /></div>
+    <?php endif ;?>
+  <!--main end-->
+</div>
+</form>
 
-
-
-<div style=" height:90px; clear:both; "><a  style="color:#3E5F9B;" href="/exp.php?mid=<?php echo $_GET['mid'];?>&lianjie=<?php echo $_GET['lianjie'];?>&money=<?php echo $_GET['money'];?>&title=<?php echo $_GET['title'];?>&shoulu=<?php echo $_GET['shoulu'];?>" target="_blank">下载此分类报价表</a></div>
 
 <div class="ie8 cartbox"><p><?php echo cartBox()?></p>
 </div>
@@ -448,8 +480,6 @@ while (!!$row=_mysql_list($_result)) {
 		});
 	}
 </script>
-
-
 
 </body>
 </html>

@@ -85,9 +85,12 @@ table{ border-collapse:collapse;}
 /*meitiBox*/
 .meitiBox{ border:1px solid #C9D3E9; padding:15px 0px 5px 0px; margin-bottom:8px;}
 .meitiBox ul{ margin-left:15px; clear:both;}
-.meitiBox ul li{ margin-right:10px; margin-bottom:10px; border:1px solid #7491C7; color:#3E5F9B; background:#EDF1F8; padding:4px 8px; white-space:nowrap; float:left;}
+.meitiBox ul li{ margin-right:10px; margin-bottom:10px; color:#3E5F9B; padding:4px 8px; white-space:nowrap; float:left;}
 .meitiBox ul li a{ color:#3E5F9B;}
 .meitiBox ul li.nostyle{ border:none; background:none; color:#000000; padding:4px 0px;}
+.meitiBox ul li .site{ width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.meitiBox .sortName{ float: left; margin-top: 7px; padding-right: 5px; width: 80px; text-align: right;}
+.meitiBox .siteBox{ float: left; width: 980px;}
 
 /*weblist*/
 .weblist{ background:#F1F3F9; font-size:13px;}
@@ -114,7 +117,7 @@ table{ border-collapse:collapse;}
 .weblist1 tr td a.sub{ border:1px solid #7491C7; padding:2px 8px; background:#fff;}
 .weblist1 tr td a.sub:hover{ text-decoration:none; background:#CCCCCC; color:#000000;}
 
-.addSub{ border:1px solid #7491C7; color:#3E5F9B; height:40px; line-height:40px;}
+.addSub{ border:1px solid #7491C7; color:#3E5F9B; height:40px; line-height:40px; margin-bottom: 60px;}
 .addSub span{ margin-left:20px; border:1px solid #7491C7; background:#EDF1F8; padding:4px 20px; color:#ACA899;}
 .addSub input{ color:#3E5F9B; border:1px solid #7491C7; background:#EDF1F8; height:22px; cursor:pointer; margin-left:20px; margin-top:8px; text-align:center; padding:2px 12px;}
 .addSub2{ border:none;}

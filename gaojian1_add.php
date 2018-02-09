@@ -94,7 +94,7 @@ else alert("你选择的是工商");
 	<div class="tishibox"><strong>* 当前可用余额不足支付<?php echo $z_price?>元,将无法成功发布稿件 <a href="alipay.php">请为您的账号充值</a></strong></div>
 <?php endif ;?> 
     <div class="add_buzhuo">
-    	<a href="gaojian_add.php">方式一：创建新的软文</a>
+    	<a href="gaojian_list.php">方式一：创建新的软文</a>
     	<a href="gaojian1_add.php" class="online">方式二：从发布列表选择</a>
     	<a href="gaojian2_add.php">方式三：提交WORD文档稿件</a>
     	<a href="gaojian3_add.php">方式四：转载来源</a>
