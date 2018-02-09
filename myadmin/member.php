@@ -95,15 +95,16 @@ $sql_seach=" WHERE 1=1".$sql_seach;
   <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#CCE0F6" class="newstitletable">
     <tr>
       <td width="4%" height="32" align="center">ID</td>
-      <td width="8%" align="center">帐号</td>
-      <td width="8%" align="center">姓名</td>
-      <td width="10%" align="center">手机</td>
+      <td width="12%" align="center">帐号</td>
+      <td width="12%" align="center">姓名</td>
+      <td width="12%" align="center">手机</td>
+      <td width="6%" align="center">会员等级</td>
       <td width="6%" align="center">新闻数</td>
-      <td width="6%" align="center">微博数</td>
+      <!-- <td width="6%" align="center">微博数</td>
       <td width="6%" align="center">论坛数</td>
-      <td width="6%" align="center">微信数</td>
+      <td width="6%" align="center">微信数</td> -->
       <td width="6%" align="center">代写数</td>
-      <td width="6%" align="center">余额</td>
+      <td width="8%" align="center">余额</td>
       <td width="12%" align="center">注册时间</td>
       <td align="center">操 作</td>
     </tr>
@@ -118,15 +119,16 @@ while (!!$row=_mysql_list($_result)) {
 ?>
     <tr>
       <td width="4%" height="35" align="center" class="pxid"><?php echo $row['id']?></td>
-      <td width="8%" align="center"><?php echo $row['my_username']?></td>
-      <td width="8%" align="center"><?php echo $row['nickname']?></td>
-      <td width="10%" align="center"><?php echo $row['tel']?></td>
+      <td width="12%" align="center"><?php echo $row['my_username']?></td>
+      <td width="12%" align="center"><?php echo $row['nickname']?></td>
+      <td width="12%" align="center"><?php echo $row['tel']?></td>
+      <td width="6%" align="center">会员等级</td>
       <td width="6%" align="center"><a href="gaojian.php?uid=<?php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><?php echo gaojian_num($row['id'])?></a></td>
-      <td width="6%" align="center"><a href="gaojianwb.php?uid=<?php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><?php echo weibo_num($row['id'])?></a></td>
-      <td width="6%" align="center"><a href="gaojianlt.php?uid=<?php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><?php echo luntan_num($row['id'])?></a></td>
-      <td width="6%" align="center"><a href="gaojianwx.php?uid=<?php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><?php echo weixin_num($row['id'])?></a></td>
+      <!-- <td width="6%" align="center"><a href="gaojianwb.php?uid=<php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><php echo weibo_num($row['id'])?></a></td>
+      <td width="6%" align="center"><a href="gaojianlt.php?uid=<php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><php echo luntan_num($row['id'])?></a></td>
+      <td width="6%" align="center"><a href="gaojianwx.php?uid=<php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><php echo weixin_num($row['id'])?></a></td> -->
       <td width="6%" align="center"><a href="daixie.php?uid=<?php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><?php echo daixie_num($row['id'])?></a></td>
-      <td width="6%" align="center"><strong style="color:#FF0000;"><?php echo $row['money']?>元</strong></td>
+      <td width="8%" align="center"><strong style="color:#FF0000;"><?php echo $row['money']?>元</strong></td>
       <td width="12%" align="center"><?php echo $row['regtime']?></td>
       <td align="center"><a href="member_alipay.php?id=<?php echo $row['id']?>">[充值]</a> <a href="caiwu.php?uid=<?php echo $row['id']?>">[财务]</a> <a href="member_edit.php?id=<?php echo $row['id']?>">[修改]</a> <a href="?act=del&id=<?php echo $row['id']?>" onclick="delcfm()">[删除]</a></td>
     </tr>

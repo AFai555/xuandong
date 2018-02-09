@@ -98,13 +98,13 @@ while (!!$rs_sort=_mysql_list($_result)) {
       <td width="3%" height="32" align="center"><input type="checkbox" name="allbox" id="allbox" class="checkbox_input" style="border:0px;" /></td>
       <td width="4%" align="center">ID</td>
       <td align="center">媒体频道</td>
-      <td width="6%" align="center">分类</td>
-      <td width="6%" align="center">地区</td>
+      <td width="14%" align="center">分类</td>
+      <!-- <td width="6%" align="center">地区</td> -->
       <td width="6%" align="center">成本价</td>
       <td width="6%" align="center">会员价</td>
-      <td width="12%" align="center">编辑QQ</td>
-      <td width="12%" align="center">编辑电话</td>
-      <td width="25%" align="center">备注</td>
+      <!-- <td width="12%" align="center">编辑QQ</td> -->
+      <!-- <td width="12%" align="center">编辑电话</td> -->
+      <!-- <td width="25%" align="center">备注</td> -->
       <td width="10%" align="center">操作</td>
     </tr>
   </table>
@@ -120,20 +120,21 @@ while (!!$row=_mysql_list($_result)) {
       <td width="3%" height="33" align="center"><input name="ID[]" type="checkbox"  class="listbox" value="<?php echo $row['id']?>" /></td>
       <td width="4%" align="center" class="pxid"><?php echo $row['id']?></td>
       <td align="left"><div class="newstitle"><a href="<?php echo $row['link']?>" target="_blank"><?php echo $row['title']?></a> <a href="<?php echo $row['case_url']?>" target="_blank">[案例]</a></div></td>
-      <td width="6%" align="center"><?php echo getMeiti($row['mid'])?></td>
-      <td width="6%" align="center"><?php echo getdiqu($row['diquid'])?></td>
+      <td width="14%" align="center"><?php echo getMeiti($row['mid'])?></td>
+      <!-- <td width="6%" align="center"><php echo getdiqu($row['diquid'])?></td> -->
       <td width="6%" align="center"><?php echo $row['cb_price']?>元</td>
       <td width="6%" align="center"><?php echo $row['price']?>元</td>
-      <td width="12%" align="center"><a href="tencent://message/?uin=<?php echo $row['qq']?>"><img src="images/pa.gif" /></a></td>
-      <td width="12%" align="center"><?php echo $row['tel']?></td>
-      <td width="25%" align="center">
+      <!-- <td width="12%" align="center"><a href="tencent://message/?uin=<php echo $row['qq']?>"><img src="images/pa.gif" /></a></td> -->
+      <!-- <td width="12%" align="center"><php echo $row['tel']?></td> -->
+      <!-- <td width="25%" align="center">
       
        <table ><tr><td width="90%" align="left">
-	  <?php echo $row['beizhu']?> </td><td align="center">
-      <strong style="color:#F00"> <?php  if ($row['hide'] ==1) echo '隐';?> </strong>
+	  <php echo $row['beizhu']?> </td><td align="center">
+      <strong style="color:#F00"> <php  if ($row['hide'] ==1) echo '隐';?> </strong>
       </td></tr></table>
       
-      </td>
+      </td> -->
+
       <td width="10%" align="center"><a href="case_edit.php?id=<?php echo $row['id']?>" class="icon_edit">编辑</a> <a href="?act=del&id=<?php echo $row['id']?>" class="icon_del" onclick="delcfm()">删除</a></td>
     </tr>
 <?php }?> 

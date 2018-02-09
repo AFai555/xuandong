@@ -155,9 +155,9 @@ if ($_GET['act']=='xiugai') {
         <input name="c_bah" type="text" id="c_bah" size="25" value="<?php echo $c_bah?>" />
         <span class="textinput"></span></dt>
         
-      <dt><em>综合门户媒体：</em>
+      <!-- <dt><em>综合门户媒体：</em>
         <textarea name="config_meiti" cols="100" rows="6" id="config_meiti"><?php echo $config_meiti?></textarea>
-        <span class="textareatxt">每个关键词之间用、分开，例如 ：搜狐、新浪、腾讯、网易、凤凰网</span></dt>
+        <span class="textareatxt">每个关键词之间用、分开，例如 ：搜狐、新浪、腾讯、网易、凤凰网</span></dt> -->
       <dt>
         <input type="submit" value="保存" class="lbnt" />
         <input type="button" class="lbnt" value="返回" onClick="location.href='javascript:history.go(-1)'" />

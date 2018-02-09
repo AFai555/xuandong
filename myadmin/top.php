@@ -47,7 +47,7 @@ $(function(){
 
 <?php if ($_SESSION['lv']==1) :?>
                 <dt><a href="left.php?act=daixie" target="leftFrame">代写</a></dt>
-                <dt><a href="left.php?act=news" target="leftFrame">新闻</a></dt>
+                <!-- <dt><a href="left.php?act=news" target="leftFrame">新闻</a></dt> -->
                 <dt><a href="left.php?act=member" target="leftFrame">会员</a></dt>
                 <dt><a href="left.php?act=caiwu" target="leftFrame">财务</a></dt>
                 <dt><a href="left.php?act=tongzhi" target="leftFrame">通知</a></dt>

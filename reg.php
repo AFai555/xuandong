@@ -46,7 +46,7 @@ if ($_POST['pn_post']=='注册'){
 	</span></a></h1>
     <div class="box">
      <h2>10秒快速注册</h2>
-       <p class="nop"><span style="width:180px">QQ号/帐号：</span><input name="username" type="text" id="username" maxlength="15" /> (亲，请确保QQ号是真实的，找回密码需要用到) </p>
+       <p class="nop"><span style="width:180px">QQ号/帐号：</span><input name="username" type="text" id="username" maxlength="11"/> (亲，请确保QQ号是真实的，找回密码需要用到) </p>
         <p class="nop"><span  style="width:180px">设置密码：</span> 
           <input name="pasd" type="password" id="pasd" maxlength="15" />
         (与真正QQ登录密码不同，此为本平台登录密码) </p>

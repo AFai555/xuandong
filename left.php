@@ -13,9 +13,9 @@
 	<dl>
     	<dt>软文发布管理</dt>
         <dd><a href="gaojian_admin.php" target="mainFrame">软文进度查询</a></dd>
-        <dd><a href="weibo_admin.php" target="mainFrame">微博进度查询</a></dd>
+        <!-- <dd><a href="weibo_admin.php" target="mainFrame">微博进度查询</a></dd>
         <dd><a href="luntan_admin.php" target="mainFrame">论坛进度查询</a></dd>
-        <dd><a href="weixin_admin.php" target="mainFrame">微信进度查询</a></dd>
+        <dd><a href="weixin_admin.php" target="mainFrame">微信进度查询</a></dd> -->
     	<dt>软文代写管理</dt>
         <dd><a href="daixie_add.php" target="mainFrame">发布代写需求</a></dd>
         <dd><a href="daixie_admin.php" target="mainFrame">代写需求列表</a></dd>

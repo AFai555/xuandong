@@ -29,7 +29,7 @@ $row=_get_one('member',$_GET['id']);
 </head>
 
 <body>
-<div class="menubox"><strong>当前位置：</strong>会员 &gt; 会员管理 &gt; 会员充值</div>
+<div class="menubox"><strong>当前位置：</strong>会员 &gt; 会员管理 &gt; 会员修改</div>
 <div class="mainbox">
 <form  name="add" method="post" action="?act=xiugai">
 <input name="uid" type="hidden" id="uid" value="<?php echo $row['id']?>" />
@@ -46,6 +46,17 @@ $row=_get_one('member',$_GET['id']);
       <dt><em>手机：</em>
         <input name="tel" type="text" id="tel" value="<?php echo $row['tel']?>" size="30" />
       </dt>
+
+      <!-- 增加会员等级 -->
+      <!-- 可以参照case_edit.php 的“地区” -->
+      <dt><em>会员等级：</em>
+        <select name="vip">
+          <option>普通会员</option>
+          <option>高级会员</option>
+          <option selected="selected">钻石会员</option>
+        </select>
+      </dt>
+
       <dt><em>QQ：</em>
         <input name="qq" type="text" id="qq" value="<?php echo $row['qq']?>" size="30" />
       </dt>

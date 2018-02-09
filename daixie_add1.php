@@ -51,7 +51,7 @@ if ($_POST['pn_post']=='提交代写需求'){
 <?php require 'user_top.php'?>
     <div class="add_buzhuo">
     	<a href="daixie_add.php" class="online">第一步：添加并发布写作需求</a>
-    	<a href="daixie_admin.php">第三步：查看写作需求列表</a>    </div>
+    	<a href="daixie_admin.php">第二步：查看写作需求列表</a>    </div>
 <?php if ($userMoney<$config_daixie_price) :?>
 	<div class="tishibox"><strong>* 当前可用余额不足支付代写费用 <a href="alipay.php">请为您的账号充值</a></strong></div>
 <?php endif ;?> 

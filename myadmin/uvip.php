@@ -40,21 +40,36 @@ $row=_get_one('vip',1);
   <input type="radio" name="kd" id="kd" value="0" <?php echo _danxuan(0,$row['kd'])?> />
   关闭
         </dt>
-      <dt>普通会员：
-        <input name="name1" type="text" id="name1" size="10" value="<?php echo $row['name1']?>" />
+
+      <!-- <dt>普通会员：
+        <input name="name1" type="text" id="name1" size="10" value="<php echo $row['name1']?>" />
         <span class="textinput">元   ---普通会员的条件，消费满XX元</span></dt>
  
       <dt>普通会员：
-        <input name="lv1" type="text" id="lv1" size="10" value="<?php echo $row['lv1']?>" />
+        <input name="lv1" type="text" id="lv1" size="10" value="<php echo $row['lv1']?>" />
         <span class="textinput"> 普通会员享受的价格折扣--1为不打折--0.9为打九折以此类推。</span></dt>
       
       <dt>高级会员：
-        <input name="name2" type="text" id="name2" size="10" value="<?php echo $row['name2']?>" />
+        <input name="name2" type="text" id="name2" size="10" value="<php echo $row['name2']?>" />
         <span class="textinput">元 ---高级会员的条件，消费满XX元</span></dt>
     
       <dt>高级会员：
-        <input name="lv2" type="text" id="lv2" size="10" value="<?php echo $row['lv2']?>" />
-        <span class="textinput">  ---高级会员享受的价格折扣--1为不打折--0.9为打九折以此类推。</span></dt>
+        <input name="lv2" type="text" id="lv2" size="10" value="<php echo $row['lv2']?>" />
+        <span class="textinput">  ---高级会员享受的价格折扣--1为不打折--0.9为打九折以此类推。</span></dt> -->
+
+        <dt>普通会员：
+        <input name="name1" type="text" id="name1" size="10" value="<?php echo $row['name1']?>" />
+        <span class="textinput">元   ---普通会员比成本价高15元</span></dt>
+      
+      <dt>高级会员：
+        <input name="name2" type="text" id="name2" size="10" value="<?php echo $row['name2']?>" />
+        <span class="textinput">元 ---高级会员比成本价高10元</span></dt>
+
+      <dt>钻石会员：
+        <input name="name3" type="text" id="name3" size="10" value="<?php echo $row['name3']?>" />
+        <span class="textinput">元 ---钻石会员比成本价高5元</span></dt>
+
+
       <dt>
         <input type="submit" value="确认" class="lbnt" />
         <input type="button" class="lbnt" value="返回" onClick="location.href='javascript:history.go(-1)'" />

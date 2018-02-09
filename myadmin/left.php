@@ -30,12 +30,12 @@ $(function(){
             <dt><a href="config_index.php" target="mainFrame">○ 网站设置</a></dt>
             <dt><a href="administrator.php" target="mainFrame">○ 管理员管理</a></dt>
             <dt><a href="logo_up.php" target="mainFrame">○ logo设置</a></dt>
-            <dt><a href="shouye_up.php" target="mainFrame">○ 首页大图设置</a></dt>
-            <dt><a href="mail_edit.php" target="mainFrame">○ 邮箱设置</a></dt>
+            <!-- <dt><a href="shouye_up.php" target="mainFrame">○ 首页大图设置</a></dt> -->
+            <!-- <dt><a href="mail_edit.php" target="mainFrame">○ 邮箱设置</a></dt> -->
             <dt><a href="price.php" target="mainFrame">○ 价格批量操作</a></dt>
             <dt><a href="dbbak.php" target="mainFrame">○ 数据库备份还原</a></dt>
             <dt><a href="uvip.php" target="mainFrame">○ 会员信息设置</a></dt>
-            <dt><a href="diqu.php" target="mainFrame">○ 地区设置</a></dt>
+            <!-- <dt><a href="diqu.php" target="mainFrame">○ 地区设置</a></dt> -->
           
 <?php
 		break;
@@ -48,9 +48,9 @@ $(function(){
 ?>
             <dt><a href="case.php" target="mainFrame">○ 案例管理</a></dt>
             <dt><a href="case_add.php" target="mainFrame">○ 添加案例</a></dt>
-            <dt><a href="case_in.php" target="mainFrame">○ 新闻媒体导入</a></dt>
+            <!-- <dt><a href="case_in.php" target="mainFrame">○ 新闻媒体导入</a></dt> -->
             <dt><a href="meiti.php" target="mainFrame">○ 媒体管理</a></dt>
-            <dt><a href="weibocase.php" target="mainFrame">○ 微博案例管理</a></dt>
+            <!-- <dt><a href="weibocase.php" target="mainFrame">○ 微博案例管理</a></dt>
             <dt><a href="weibocase_add.php" target="mainFrame">○ 添加微博案例</a></dt>
             <dt><a href="weibo.php" target="mainFrame">○ 微博管理</a></dt>
             <dt><a href="luntancase.php" target="mainFrame">○ 论坛案例管理</a></dt>
@@ -59,7 +59,7 @@ $(function(){
             <dt><a href="weixincase.php" target="mainFrame">○ 微信案例管理</a></dt>
             <dt><a href="weixincase_add.php" target="mainFrame">○ 添加微信案例</a></dt>
             <dt><a href="weixin.php" target="mainFrame">○ 微信管理</a></dt>
-            <dt><a href="taocan.php" target="mainFrame">○ 套餐管理</a></dt>
+            <dt><a href="taocan.php" target="mainFrame">○ 套餐管理</a></dt> -->
 <?php
 		break;
 		case "news":
@@ -82,10 +82,10 @@ $(function(){
 		case "gaojian":
 ?>
             <dt><a href="gaojian.php" target="mainFrame">○ 稿件管理</a></dt>
-            <dt><a href="gaojianbb.php" target="mainFrame">○ 付款核对表</a></dt>
+            <!-- <dt><a href="gaojianbb.php" target="mainFrame">○ 付款核对表</a></dt>
             <dt><a href="gaojianwb.php" target="mainFrame">○ 微博稿件管理</a></dt>
             <dt><a href="gaojianlt.php" target="mainFrame">○ 论坛稿件管理</a></dt>
-            <dt><a href="gaojianwx.php" target="mainFrame">○ 微信稿件管理</a></dt>
+            <dt><a href="gaojianwx.php" target="mainFrame">○ 微信稿件管理</a></dt> -->
 <?php
 		break;
 		case "daixie":

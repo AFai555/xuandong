@@ -20,65 +20,65 @@ if ($_GET['act']=='xiugai1') {
 	ShowMsg('成功：新闻媒体批量减少价格成功',$PreviousUrl);
 	}
 }
-if ($_GET['act']=='xiugai2') {
+// if ($_GET['act']=='xiugai2') {
 	
-	$PreviousUrl=$_POST['PreviousUrl2'];
-	$data['price']=$_POST['price2']	;
-	if ($data['price']=='') ShowMsg('错误：价格称不能为空','-1');
-	if($_POST['ck2']==1)
-	{
+// 	$PreviousUrl=$_POST['PreviousUrl2'];
+// 	$data['price']=$_POST['price2']	;
+// 	if ($data['price']=='') ShowMsg('错误：价格称不能为空','-1');
+// 	if($_POST['ck2']==1)
+// 	{
 			
-			_query("update weibo_case set price = price+".$data['price']." ");
-	ShowMsg('成功：微博批量增加价格成功',$PreviousUrl);
-		}
-	else
-	{
+// 			_query("update weibo_case set price = price+".$data['price']." ");
+// 	ShowMsg('成功：微博批量增加价格成功',$PreviousUrl);
+// 		}
+// 	else
+// 	{
 	
-	_query("update weibo_case set price = price-".$data['price']." ");
+// 	_query("update weibo_case set price = price-".$data['price']." ");
 	
-	ShowMsg('成功：微博批量减少价格成功',$PreviousUrl);
-	}
-}
-if ($_GET['act']=='xiugai3') {
+// 	ShowMsg('成功：微博批量减少价格成功',$PreviousUrl);
+// 	}
+// }
+// if ($_GET['act']=='xiugai3') {
 	
-	$PreviousUrl=$_POST['PreviousUrl3'];
-	$data['price']=$_POST['price3']	;
-	if ($data['price']=='') ShowMsg('错误：价格称不能为空','-1');
-	if($_POST['ck3']==1)
-	{
+// 	$PreviousUrl=$_POST['PreviousUrl3'];
+// 	$data['price']=$_POST['price3']	;
+// 	if ($data['price']=='') ShowMsg('错误：价格称不能为空','-1');
+// 	if($_POST['ck3']==1)
+// 	{
 			
-			_query("update weixin_case set price = price+".$data['price']." ");
+// 			_query("update weixin_case set price = price+".$data['price']." ");
 			
-	ShowMsg('成功：微信批量增加价格成功',$PreviousUrl);
-		}
-	else
-	{
+// 	ShowMsg('成功：微信批量增加价格成功',$PreviousUrl);
+// 		}
+// 	else
+// 	{
 	
-	_query("update weixin_case set price = price-".$data['price']." ");
+// 	_query("update weixin_case set price = price-".$data['price']." ");
 		
-	ShowMsg('成功：微信批量减少价格成功',$PreviousUrl);
-	}
-}
-if ($_GET['act']=='xiugai4') {
+// 	ShowMsg('成功：微信批量减少价格成功',$PreviousUrl);
+// 	}
+// }
+// if ($_GET['act']=='xiugai4') {
 	
-	$PreviousUrl=$_POST['PreviousUrl4'];
-	$data['price']=$_POST['price4']	;
-	if ($data['price']=='') ShowMsg('错误：价格称不能为空','-1');
-	if($_POST['ck4']==1)
-	{
+// 	$PreviousUrl=$_POST['PreviousUrl4'];
+// 	$data['price']=$_POST['price4']	;
+// 	if ($data['price']=='') ShowMsg('错误：价格称不能为空','-1');
+// 	if($_POST['ck4']==1)
+// 	{
 		
-			_query("update luntan_case set price = price+".$data['price']." ");
+// 			_query("update luntan_case set price = price+".$data['price']." ");
 			
-	ShowMsg('成功：论坛批量增加价格成功',$PreviousUrl);
-		}
-	else
-	{
+// 	ShowMsg('成功：论坛批量增加价格成功',$PreviousUrl);
+// 		}
+// 	else
+// 	{
 	
-	_query("update luntan_case set price = price-".$data['price']." ");
+// 	_query("update luntan_case set price = price-".$data['price']." ");
 	
-	ShowMsg('成功：论坛批量减少价格成功',$PreviousUrl);
-	}
-}
+// 	ShowMsg('成功：论坛批量减少价格成功',$PreviousUrl);
+// 	}
+// }
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -116,7 +116,7 @@ if ($_GET['act']=='xiugai4') {
   </form>
 </div>
 
-<div class="mainbox">
+<!-- <div class="mainbox">
   <form  name="add2" method="post" action="?act=xiugai2">
     <input name="PreviousUrl2" type="hidden" id="PreviousUrl2" value="<?php echo $_SERVER['HTTP_REFERER']?>" />
     <dl>
@@ -189,6 +189,6 @@ if ($_GET['act']=='xiugai4') {
       </dt>
     </dl>
   </form>
-</div>
+</div> -->
 </body>
 </html>

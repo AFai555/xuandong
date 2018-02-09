@@ -7,9 +7,9 @@ $logo_url=_get_one('logo_up','1');
 <script src="./other/hm.js"></script><script src="./other/jquery.min.js" type="text/javascript"></script>
 <script src="./other/jquery.sslide.js" type="text/javascript"></script>
 
-<div class="header" style="padding-top: 0px;">
+<div class="header" style="padding-top: 0px;padding-bottom: 37px;">
   <div class="wrapper" style="width: 100%;">
-    <div class="logo"> <a href="/"  target="_parent" title="首页"><img src="<?php echo $logo_url['imgurl']?>" alt="logo"></a> </div>
+    <div class="logo"> <a href="/login.php"  target="_parent" title="首页"><img src="<?php echo $logo_url['imgurl']?>" alt="logo"></a> </div>
     <!--logo end-->
     <div class="txt"> <strong><?php echo $config_d_dis?></strong>  </div>
     <div class="tel" style="top: 25px;left: 1100px;"> <div class="contact">
@@ -22,11 +22,11 @@ $logo_url=_get_one('logo_up','1');
 
 <div class="naver">
   <ul class="wrapper" style="width: 100%;">
-    <li><a href="/"  target="_parent">网站首页</a></li>
+    <li><a href="/login.php"  target="_parent">网站首页</a></li>
     <li><a href="admin.php?act=gj" target="_parent">新闻发布</a></li>
-    <li><a href="admin.php?act=wb" target="_parent">微  博</a></li>
+    <!-- <li><a href="admin.php?act=wb" target="_parent">微  博</a></li>
     <li><a href="admin.php?act=lt" target="_parent">论  坛</a></li>
-    <li><a href="admin.php?act=wx" target="_parent">微  信</a></li>
+    <li><a href="admin.php?act=wx" target="_parent">微  信</a></li> -->
 
    <?php if ($_SESSION['userid']!='') :?>
         <li>[<?php echo $_SESSION['user_name']?>] <a href="loginout.php" target="_parent">退出</a></li>
@@ -38,7 +38,7 @@ $logo_url=_get_one('logo_up','1');
         <li><a href="login.php" target="_parent">登录</a> <a href="reg.php" target="_parent">注册</a></li>
         <?php endif ;?>
         
-    <li><a href="admin.php?act=tj" target="_parent" style="color:#F00">提交资源</a></li>
+    <!-- <li><a href="admin.php?act=tj" target="_parent" style="color:#F00">提交资源</a></li> -->
        </ul>
 </div>
 <!--
