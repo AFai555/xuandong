@@ -195,37 +195,52 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 					<div class="sortName"><?php echo $row['title']."："?></div>
 
 					<div class="siteBox">
+					<?php
+						$sql="SELECT * FROM meiti_case WHERE mid=$row[id]";
+						$_result2=_query($sql);
+						while (!!$row2=_mysql_list($_result2)) {
+					?>
 						<!-- 在这个地方循环网站，<li>为循环体 -->
 						<li>
 							<div class="site">
-								<input type="checkbox" value="117">
-								<span>凤凰网(20.00元)</span>
-							</div>
-						</li>
+							<input type="checkbox" name="checkbox_media_id" id="c_id_<?php echo $row2['id']?>" class="addcart" value="<?php echo $row2['id']?>" />
+							<span>
+								<?php if($row2['case_url']=='') :?>
+									<?php echo $row2['title']?>
+								<?php else :?>
+									<a href="<?php echo $row2['link']?>" target="_blank"><?php echo $row2['title']?></a>
+								<?php endif ;?>
 
-						<li>
-							<div class="site">
-								<input type="checkbox" value="117">
-								<span>凤凰网(20.00元)</span>
+								<!-- 输出价格 -->
+								<?php  if ($_SESSION['userid']) { ?>
+								<?php if($vip['kd']=='1') {?>   
+								<td><p ><del><?php echo $row2['price']?>元</del></p></td>
+
+									<?php if($price['price'] > $vip['name1']) {?>
+											<?php if($price['price'] > $vip['name2']) {?>
+											<td><p class="price"><?php echo $row2['price']* $vip['lv2'] ?>元</p></td>
+											<?php } else  {?>
+											<td><p class="price"><?php echo $row2['price']* $vip['lv1'] ?>元</p></td>
+												<?php }  ?>            
+									<?php } else  {?>
+										<td><p class="price"><?php echo $row2['price'] ?>元</p></td>
+									<?php }  ?>  
+							
+								<?php } else {?>
+								<td><p class="price"><?php echo $row2['price']?>元</p></td>
+								<?php } ?> 
+								<?php } else {?>  
+										<td><p class="price"><?php echo $row2['price']?>元</p></td>
+										<?php } ?>
+							</span>
 							</div>
 						</li>
+					<?php }?>
 					</div>
 				</ul>
 				<div class="clear mb10"></div>
 			</div>
 		<?php }?>
-
-			<!-- <ul>
-				<li>媒体类型</li>
-				<li class="nostyle">---》</li>
-				<php
-				$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
-				while (!!$row=_mysql_list($_result)) {
-				?>
-							<li><a href="?mid=<php echo $row['id']?>"><php echo $row['title']?></a></li>
-				<php }?>
-							<li><a href="gaojian_list.php">更多...</a></li>
-			</ul> -->
 	</div>
 
 
@@ -247,66 +262,6 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
    </div></td>
   </div>
   -->
-  <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="weblist">
-  <tr>
-    <th width="10%">发布稿件</th>
-   <th>媒体频道</th>
-    <th width="6%">会员价</th>
-      <?php  if ($_SESSION['userid']) { ?>
-     <?php if($vip['kd']=='1') {?>  
-   		  <?php if($price['price'] > $vip['name1']) {?>
-          		   <?php if($price['price'] > $vip['name2']) {?>
-                   <th width="8%">高级会员价</th>
-                   <?php } else  {?>
-                   <th width="8%">普通会员价</th>
-                    <?php }  ?>            
-  		  <?php } else  {?>
-           <th width="8%">注册会员价</th>
- 		  <?php }  ?>  
-   
-    <?php } else {?>
-     
-     <?php } ?> 
-     <?php } ?>  
-  </tr>
-<?php
-$sql="SELECT * FROM meiti_case".$sql_seach;
-_page($sql,100);
-$sql=$sql." LIMIT $_pagenum,$_pagesize";
-$_result=_query($sql);
-while (!!$row=_mysql_list($_result)) {
-?>
-  <tr>
-     <td><input type="checkbox" name="checkbox_media_id" id="c_id_<?php echo $row['id']?>" class="addcart" value="<?php echo $row['id']?>" />
-	选中发布
-    </td>
-    <td><?php if($row['case_url']=='') :?><?php echo $row['title']?><?php else :?><a href="<?php echo $row['link']?>" target="_blank"><?php echo $row['title']?></a><?php endif ;?>   <?php if($row['case_url']!='') :?><a href="<?php echo $row['case_url']?>" target="_blank">[案例] </a><?php endif ;?></td>
-       <?php  if ($_SESSION['userid']) { ?>
-   <?php if($vip['kd']=='1') {?>   
-     <td><p ><del><?php echo $row['price']?>元</del></p></td>
-
-   		  <?php if($price['price'] > $vip['name1']) {?>
-          		   <?php if($price['price'] > $vip['name2']) {?>
-                   <td><p class="price"><?php echo $row['price']* $vip['lv2'] ?>元</p></td>
-                   <?php } else  {?>
-                   <td><p class="price"><?php echo $row['price']* $vip['lv1'] ?>元</p></td>
-                    <?php }  ?>            
-  		  <?php } else  {?>
-            <td><p class="price"><?php echo $row['price'] ?>元</p></td>
- 		  <?php }  ?>  
-   
-    <?php } else {?>
-      <td><p class="price"><?php echo $row['price']?>元</p></td>
-     <?php } ?> 
-      <?php } else {?>  
-            <td><p class="price"><?php echo $row['price']?>元</p></td>
-              <?php } ?>  
-  </tr>
- <?php }?>  
-  <tr>
-    <td colspan="8" style="height:40px; line-height:40px;"><?php echo _pageshow(2)?></td>
-    </tr>
-</table>
 
 <form action="" method="post">
 <div class="main" style="width: 100%;">
@@ -445,7 +400,6 @@ while (!!$row=_mysql_list($_result)) {
 			});
 
 		}
-
 	});
 
 	function cx(_s){

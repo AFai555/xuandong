@@ -85,13 +85,14 @@ table{ border-collapse:collapse;}
 /*meitiBox*/
 .meitiBox{ border:1px solid #C9D3E9; padding:15px 0px 5px 0px; margin-bottom:8px;}
 .meitiBox ul{ margin-left:15px; clear:both;}
-.meitiBox ul li{ margin-right:10px; margin-bottom:10px; color:#3E5F9B; padding:4px 8px; white-space:nowrap; float:left;}
+.meitiBox ul li{ margin-right:10px; margin-bottom:10px; color:#3E5F9B; padding:4px 8px; white-space:normal; float:left; word-wrap: break-word;}
 .meitiBox ul li a{ color:#3E5F9B;}
 .meitiBox ul li.nostyle{ border:none; background:none; color:#000000; padding:4px 0px;}
 .meitiBox ul li .site{ width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .meitiBox ul li .site input:checked + span { color: #337ab7; font-weight: bold;}  
 .meitiBox .sortName{ float: left; margin-top: 7px; padding-right: 5px; width: 80px; text-align: right;}
 .meitiBox .siteBox{ float: left; width: 980px;}
+.meitiBox ul li .site p{display: inline-block;}
 
 /*weblist*/
 .weblist{ background:#F1F3F9; font-size:13px;}
