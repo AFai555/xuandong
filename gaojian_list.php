@@ -204,9 +204,12 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
     <div class="meitiBox">
 	<?php
 		$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
+		$_printBorder=_query("SELECT COUNT(*) FROM meiti");
+		$_printBorder = $_printBorder - 1;
+		$printNum = 0;
 		while (!!$row=_mysql_list($_result)) {
 		?>
-			<div>
+			<div class="aBorder1">
 				<ul>
 					<div class="sortName"><?php echo $row['title']."："?></div>
 
@@ -249,7 +252,13 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 					<?php }?>
 					</div>
 				</ul>
-				<div class="clear mb10"></div>
+				<div class="clear"></div>
+				<?php
+				if($printNum < $_printBorder ) {
+					echo '<div class="aBorder2"></div>';
+					$printNum++;
+				}
+				?>
 			</div>
 		<?php }?>
 	</div>
