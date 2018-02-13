@@ -109,25 +109,28 @@ if ($_GET['money']!='') {
 }
 
 // 引入gaojian_add.php 的部分内容
+
 //购物车内容
 function cartBox2(){
 	$_result=_query("SELECT * FROM cart WHERE uid={$_SESSION['userid']} AND zt=0");
+	$vip=_mysql_show("SELECT * FROM vip WHERE id= 1");
 	global $z_price;
 	$z_price=0;
 	while (!!$row=_mysql_list($_result)) {
 		$r_html.=getDbName('meiti_case','title',$row['pid']).'<em>'.$row['price'].'</em>元 ';
-
+		
 		if ($_SESSION['userid']) {
 		 	if($vip['kd']=='1') { 
 				if($_SESSION['user_grade']=="钻石会员") {
-					$price=$row['price']+$vip['lv3'];				
+					$price=$row['price']+$vip['lv3'];		
 				} else if($_SESSION['user_grade']=="高级会员") {
 					$price=$row['price']+$vip['lv2'];
 				} else {
 					$price=$row['price']+$vip['lv1'];
 				}
 			}
-		}	
+
+		} else $price=$row['price'];
 
 
 		$z_price+=$price;
@@ -136,6 +139,7 @@ function cartBox2(){
 	return $r_html;
 }
 $cartBoxHtml=cartBox2();
+
 
 if ($_POST['pn_post']=='立即提交稿件'){
 	$data['title']=$_POST['title'];
