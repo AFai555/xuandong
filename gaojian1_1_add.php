@@ -68,11 +68,6 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
     <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>
-   <div class="add_buzhuo">
-    	<a href="gaojian_list.php">第一步：选择需要发布的网站媒体</a>
-    	<a href="gaojian_add.php" class="online">第二步：添加并提交软文稿件内容</a>
-    	<a href="gaojian_admin.php">第三步：查看软文发布进度结果</a>
-    </div>
 <?php if ($userMoney<$z_price) :?>
 	<div class="tishibox"><strong>* 当前可用余额不足支付<?php echo $z_price?>元,将无法成功发布稿件 <a href="alipay.php">请为您的账号充值</a></strong></div>
 <?php endif ;?> 
@@ -85,7 +80,7 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
     <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">
       <tr>
         <td width="120" height="40"><p class="mc">所选媒体</p></td>
-        <td><p class="mc"><?php echo $cartBoxHtml?> <a href="gaojian_list.php">返回重新选择</a></p></td>
+        <td><p class="mc"><?php echo $cartBoxHtml?></p></td>
       </tr>
       <tr>
         <td height="40"><p class="mc">文章标题<em>*必填
@@ -100,7 +95,7 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
         </p>
         <p class="mc pt10">友情提示:1.禁止负面、违法、政治敏感内容！2.发布后不可修改或删除！3.最好不要带网址，带网址有可能被拒稿且带图片不超三张</p>        </td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td height="40"><p class="mc">频道调剂<em>*必读</em></p></td>
         <td bgcolor="#FFFFFF"><p>
             <input name="jiegao1" type="radio" id="radio21" value="1" checked="checked" />
@@ -137,7 +132,7 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
           因编辑原因当天未完成发布，隔天也可以等（推荐）
   <input type="radio" name="jiegao" id="radio2" value="2" />
         当天要完成发布，超时就撤消稿件 </p></td>
-      </tr>
+      </tr> -->
     </table>
     <?php if ($userMoney<$z_price) :?>
     <div class="addSub"><span>当前余额不足，无法提交稿件</span></div>

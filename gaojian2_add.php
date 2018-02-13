@@ -1,19 +1,47 @@
 <?php
 require 'session.php';
+$vip=_mysql_show("SELECT * FROM vip WHERE id= 1");
+if ($_SESSION['userid']) {
+	$price=_mysql_show("select  ( (SELECT if(sum( money) is null,0,sum(money)) FROM `caiwu` WHERE uid = ".$_SESSION['userid']." and lx = 2)-(SELECT if(sum( money) is null,0,sum(money)) FROM `caiwu` WHERE uid = ".$_SESSION['userid']." and lx = 3)) as price from member where  id = ".$_SESSION['userid']);
+}
 
 //购物车内容
 function cartBox(){
+	if ($_SESSION['userid']) {
+		$r_html='已选择的媒体：<span id="checkbox_select_website_list"></span>';
+	}else{
+		$r_html.='<a href="login.php" target="_blank" class="addsub">您还未登陆会员</a>';
+	}
+	return $r_html;
+}
+
+//购物车内容
+function cartBox2(){
 	$_result=_query("SELECT * FROM cart WHERE uid={$_SESSION['userid']} AND zt=0");
 	global $z_price;
 	$z_price=0;
 	while (!!$row=_mysql_list($_result)) {
 		$r_html.=getDbName('meiti_case','title',$row['pid']).'<em>'.$row['price'].'</em>元 ';
-		$z_price+=$row['price'];
+
+		if ($_SESSION['userid']) {
+		 	if($vip['kd']=='1') { 
+				if($_SESSION['user_grade']=="钻石会员") {
+					$price=$row['price']+$vip['lv3'];				
+				} else if($_SESSION['user_grade']=="高级会员") {
+					$price=$row['price']+$vip['lv2'];
+				} else {
+					$price=$row['price']+$vip['lv1'];
+				}
+			}
+		}	
+
+
+		$z_price+=$price;
 	}
 	$r_html.='总计<em><strong>'.$z_price.'</strong></em>元 ';
 	return $r_html;
 }
-$cartBoxHtml=cartBox();
+$cartBoxHtml=cartBox2();
 
 if ($_POST['pn_post']=='立即提交稿件'){
 	$data['title']=$_POST['title'];
@@ -65,6 +93,8 @@ if ($_GET['act']=='xiugai' && isset($_POST['id'])) {
 <title>新闻软文自助发布平台</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="./myadmin/style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.scrollFollow.js"></script>
 <script type="text/javascript" src="./myadmin/editor/kindeditor.js"></script>
 <script type="text/javascript" src="./myadmin/editor/lang/zh_CN.js"></script>
 <script type="text/javascript" src="./myadmin/editor/Alleditor.js"></script>
@@ -96,22 +126,82 @@ if ($_GET['act']=='xiugai' && isset($_POST['id'])) {
 
 <body>
 
-<div class="main">
+<div class="main" style="margin-bottom: 90px;">
   <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 提交软文稿件内容</div>
     <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>
-   <div class="add_buzhuo">
-    	<a href="gaojian_list.php">第一步：选择需要发布的网站媒体</a>
-    	<a href="gaojian_add.php" class="online">第二步：添加并提交软文稿件内容</a>
-    	<a href="gaojian_admin.php">第三步：查看软文发布进度结果</a>
-    </div>
-
 <?php if ($userMoney<$z_price) :?>
-	<div class="tishibox"><strong>* 当前可用余额不足支付<?php echo $z_price?>元,将无法成功发布稿件 <a href="alipay.php">请为您的账号充值</a></strong></div>
-<?php endif ;?> 
+    <div class="tishibox"><strong>* 当前可用余额不足支付<?php echo $z_price?>元,将无法成功发布稿件 <a href="alipay.php">请为您的账号充值</a></strong></div>
+<?php else :?>
+    <div class="tishibox" style="display:none"></div>
+<?php endif ;?>
+
+<div class="meitiBox">
+	<?php
+		$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
+		$_printBorder=_query("SELECT COUNT(*) FROM meiti");
+		$arr = mysql_fetch_row($_printBorder);
+		$_printBorder2 = $arr[0] - 1;
+		$printNum = 0;
+		while (!!$row=_mysql_list($_result)) {
+		?>
+			<div class="aBorder1">
+				<ul>
+					<div class="sortName"><?php echo $row['title']."："?></div>
+
+					<div class="siteBox">
+					<?php
+						$sql="SELECT * FROM meiti_case WHERE mid=$row[id]";
+						$_result2=_query($sql);
+						while (!!$row2=_mysql_list($_result2)) {
+					?>
+						<!-- 在这个地方循环网站，<li>为循环体 -->
+						<li>
+							<div class="site">
+							<input type="checkbox" name="checkbox_media_id" id="c_id_<?php echo $row2['id']?>" class="addcart" value="<?php echo $row2['id']?>" />
+							<span>
+								<?php if($row2['case_url']=='') :?>
+									<?php echo $row2['title']?>
+								<?php else :?>
+									<a href="<?php echo $row2['link']?>" target="_blank"><?php echo $row2['title']?></a>
+								<?php endif ;?>
+
+								<!-- 输出价格 -->
+								<?php  
+								if ($_SESSION['userid']) {
+								 	if($vip['kd']=='1') { 
+										if($_SESSION['user_grade']=="钻石会员") {
+											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
+											echo '<td><p class="price">'.($row2['price']+ $vip['lv3']).'元</p></td>';
+										} else if($_SESSION['user_grade']=="高级会员") {
+											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
+											echo '<td><p class="price">'.($row2['price']+ $vip['lv2']).'元</p></td>';
+										} else {
+											echo '<td><p class="price">'.($row2['price']+ $vip['lv1']).'元</p></td>';
+										}
+									}
+								}
+								?>
+							</span>
+							</div>
+						</li>
+					<?php }?>
+					</div>
+				</ul>
+				<div class="clear"></div>
+				<?php
+				if($printNum < $_printBorder2 ) {
+					echo '<div class="aBorder2"></div>';
+					$printNum++;
+				}
+				?>
+			</div>
+		<?php }?>
+	</div>
+
     <div class="add_buzhuo">
-    	<a href="gaojian_add.php">方式一：创建新的软文</a>
+    	<a href="gaojian_list">方式一：创建新的软文</a>
     	<a href="gaojian1_add.php" >方式二：从发布列表选择</a>
     	<a href="gaojian2_add.php" class="online">方式三：提交WORD文档稿件</a>
     	<a href="gaojian3_add.php">方式四：转载来源</a>
@@ -119,7 +209,7 @@ if ($_GET['act']=='xiugai' && isset($_POST['id'])) {
     <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">
       <tr>
         <td width="140" height="40"><p class="mc">所选媒体</p></td>
-        <td><p class="mc"><?php echo $cartBoxHtml?> <a href="gaojian_list.php">返回重新选择</a></p></td>
+        <td><p class="mc"><?php echo $cartBoxHtml?></p></td>
       </tr>
     
       <tr>
@@ -150,6 +240,199 @@ if ($_GET['act']=='xiugai' && isset($_POST['id'])) {
   
   <!--main end-->
 </div>
+
+<div class="ie8 cartbox"><p><?php echo cartBox()?></p>
+</div>
+
+<script type="text/javascript">
+	
+	var userMoney = <?php echo $userMoney?>;
+	$(function(){
+
+		__str='';
+		
+		$.getJSON('cart.php', function(json, textStatus) {
+
+				if(json.s=="1"){
+
+					$.each(json.arr,function(index, el) {
+
+						__str=__str+el.name+' '+el.price+'元<a style="cursor:pointer;" onclick="cx(\''+el.id+'\')">[删]</a> ';
+
+						$('#c_id_'+el.id).attr('checked', 'checked');
+
+					});
+
+					__str=__str+' 总计 '+json.zj+' 元 <a style="cursor:pointer;" onclick="cx(\'0\')">【全部清空】</a>';
+
+					$("#checkbox_select_website_list").html(__str)
+
+				}else{
+
+					$("#checkbox_select_website_list").html('您还未选择媒体，将不能提交稿件')
+
+				}
+
+			});
+
+	})
+
+	$(".addcart").click(function(event) {
+		
+		if($(this).is(":checked")){
+			/******************By Born*******************/
+			var mc = '';
+			/********************************************/
+			
+			__str='';
+
+			$.getJSON('cart.php', {id: $(this).val()}, function(json, textStatus) {
+
+				if(json.s=="1"){
+
+					$.each(json.arr,function(index, el) {
+
+						__str=__str+el.name+' '+el.price+'元<a style="cursor:pointer;" onclick="cx(\''+el.id+'\')">[删]</a> ';
+
+						$('#c_id_'+el.id).attr('checked', 'checked');
+						
+						/******************By Born*******************/
+						mc += el.name + '<em>' + el.price + '</em>元 ';
+						/********************************************/
+
+					});
+
+					__str=__str+' 总计 '+json.zj+' 元 <a style="cursor:pointer;" onclick="cx(\'0\')">【全部清空】</a>';
+
+					$("#checkbox_select_website_list").html(__str);
+					
+					/*****************By Born*********************/
+					mc += '总计<em><strong>' + json.zj + '</strong></em>元 ';
+					$(".mc")[1].innerHTML = mc;
+					
+					if(userMoney < json.zj){
+						$('.tishibox')[2].innerHTML = '<strong>* 当前可用余额不足支付' + json.zj + '元,将无法成功发布稿件 <a href="alipay.php">请为您的账号充值</a></strong>';
+						$('.tishibox')[2].style.display = 'block';
+						$('.addSub')[0].innerHTML = '<div class="addSub"><span>当前余额不足，无法提交稿件</span></div>';
+					}else{
+						$('.tishibox')[2].innerHTML = '';
+						$('.tishibox')[2].style.display = 'none';
+						$('.addSub')[0].innerHTML = '<input type="submit" name="pn_post" value="立即提交稿件">';
+					}
+					/*********************************************/
+
+				}else{
+
+					$("#checkbox_select_website_list").html('您还未选择媒体，将不能提交稿件')
+
+				}
+
+			});
+
+			
+
+		}else{
+			/******************By Born*******************/
+			var mc = '';
+			/********************************************/
+
+			__str=''
+
+			$.getJSON('cart_del.php', {id: $(this).val()}, function(json, textStatus) {
+
+				if(json.s=="1"){
+
+					$.each(json.arr,function(index, el) {
+
+						__str=__str+el.name+' '+el.price+'元<a style="cursor:pointer;" onclick="cx(\''+el.id+'\')">[删]</a> ';
+
+						$('#c_id_'+el.id).attr('checked', 'checked');
+						
+						/******************By Born*******************/
+						mc += el.name + '<em>' + el.price + '</em>元 ';
+						/********************************************/
+					});
+
+					__str=__str+' 总计 '+json.zj+' 元 <a style="cursor:pointer;" onclick="cx(\'0\')">【全部清空】</a>';
+					
+					$("#checkbox_select_website_list").html(__str);
+					
+					/*****************By Born*********************/
+					mc += '总计<em><strong>' + json.zj + '</strong></em>元 ';
+					$(".mc")[1].innerHTML = mc;
+					
+					if(userMoney < json.zj){
+						$('.tishibox')[2].innerHTML = '<strong>* 当前可用余额不足支付' + json.zj + '元,将无法成功发布稿件 <a href="alipay.php">请为您的账号充值</a></strong>';
+						$('.tishibox')[2].style.display = 'block';
+						$('.addSub')[0].innerHTML = '<div class="addSub"><span>当前余额不足，无法提交稿件</span></div>';
+					}else{
+						$('.tishibox')[2].innerHTML = '';
+						$('.tishibox')[2].style.display = 'none';
+						$('.addSub')[0].innerHTML = '<input type="submit" name="pn_post" value="立即提交稿件">';
+					}
+					/*********************************************/
+
+				}else{
+
+					$("#checkbox_select_website_list").html('您还未选择媒体，将不能提交稿件')
+
+				}
+
+			});
+
+		}
+	});
+
+	function cx(_s){
+		/******************By Born*******************/
+		var mc = '';
+		/********************************************/
+
+		__str=''
+
+		$(".addcart").removeAttr('checked');
+
+		$.getJSON('cart_del.php', {id: _s}, function(json, textStatus) {
+
+			if(json.s=="1"){
+
+				$.each(json.arr,function(index, el) {
+
+					__str=__str+el.name+' '+el.price+'元<a style="cursor:pointer;" onclick="cx(\''+el.id+'\')">[删]</a> ';
+
+
+
+					$('#c_id_'+el.id).attr('checked', 'checked');
+					
+					/******************By Born*******************/
+					mc += el.name + '<em>' + el.price + '</em>元 ';
+					/********************************************/
+				});
+
+				__str=__str+' 总计 '+json.zj+' 元 <a style="cursor:pointer;" onclick="cx(\'0\')">【全部清空】</a>';
+
+				$("#checkbox_select_website_list").html(__str);
+				
+				/*****************By Born*********************/
+				mc += '总计<em><strong>' + json.zj + '</strong></em>元 ';
+				$(".mc")[1].innerHTML = mc;
+				
+				if(userMoney < json.zj){
+					$('.tishibox')[2].innerHTML = '<strong>* 当前可用余额不足支付' + json.zj + '元,将无法成功发布稿件 <a href="alipay.php">请为您的账号充值</a></strong>';
+					$('.tishibox')[2].style.display = 'block';
+					$('.addSub')[0].innerHTML = '<div class="addSub"><span>当前余额不足，无法提交稿件</span></div>';
+				}else{
+					$('.tishibox')[2].innerHTML = '';
+					$('.tishibox')[2].style.display = 'none';
+					$('.addSub')[0].innerHTML = '<input type="submit" name="pn_post" value="立即提交稿件">';
+				}
+				/*********************************************/
+			}else{
+				$("#checkbox_select_website_list").html('您还未选择媒体，将不能提交稿件')
+			}
+		});
+	}
+</script>
 
 </body>
 </html>

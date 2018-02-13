@@ -52,7 +52,7 @@ if ($row['uid']!=$_SESSION['userid'] || $row['zt']!=1) ShowMsg('错误：您无�
         </p>
         <p class="mc pt10">友情提示:1.禁止负面、违法、政治敏感内容！2.发布后不可修改或删除！3.最好不要带网址，带网址有可能被拒稿且带图片不超三张</p>        </td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td height="270"><p class="mc">附言<em>*必填</em></p></td>
         <td><p class="mc">
           <textarea name="beizhu" cols="110" rows="6" id="beizhu"><?php echo $row['beizhu']?></textarea>
@@ -82,7 +82,7 @@ if ($row['uid']!=$_SESSION['userid'] || $row['zt']!=1) ShowMsg('错误：您无�
           因编辑原因当天未完成发布，隔天也可以等（推荐）
   <input type="radio" name="jiegao" id="radio2" value="2" <?php echo _danxuan(2,$row['jiegao'])?> />
         当天要完成发布，超时就撤消稿件 </p></td>
-      </tr>
+      </tr> -->
     </table>
     <div class="addSub"><input type="submit" name="pn_post" value="确定修改稿件" /></div>
   <!--main end-->
