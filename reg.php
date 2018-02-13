@@ -54,7 +54,7 @@ if ($_POST['pn_post']=='注册'){
 		
 		<!--*******************By Born*******************-->
 		<div class="tip" style="background-color:transparent;width: 91.3px; text-align: center; padding-right: px; margin-left: 185px; height: 20px; font-size: 14px; line-height: 1.5; font-family: "黑体";"><span id="warm-tip"></span></div>
-		<!--********************************************-->
+		<!--*********************************************-->
 		
 		<p class="sub" style="width:300px ">
 		  <input name="submit" type="button" id="submit" value="注册" />
@@ -68,9 +68,12 @@ if ($_POST['pn_post']=='注册'){
 	/**********************By Born*********************/
 	$('#username').keyup(function(){
 		//判断username 输入框是否为数字 数字返回false， 非数字返回true
-		if(isNaN($('#username').val())){
+		if(isNaN($('#username').val()) || $('#username').val().length < 5 || $('#username').val().length > 11){
+			if($('#username').val().length==0){
+				return;
+			}
 			$(".tip")[0].style.backgroundColor = "#dc7878";
-			$("#warm-tip")[0].innerText = "非数字";
+			$("#warm-tip")[0].innerText = "QQ号应为5-11位数字";
 		}else{
 			$(".tip")[0].style.backgroundColor = "transparent";
 			$("#warm-tip")[0].innerText = "";
