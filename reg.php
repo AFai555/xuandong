@@ -53,7 +53,7 @@ if ($_POST['pn_post']=='注册'){
 		<p><span  style="width:180px">验证码：</span><input name="VerifyCode" type="text" maxlength="4" id="VerifyCode" style="width:80px;" />&nbsp;<span style="width:80px"><img src="myadmin/imgcode.php" title="看不清楚？点击刷新！" align="absmiddle" onClick="this.src='myadmin/imgcode.php?tm='+Math.random()" /></span><span> <strong id="errorTxt"></strong></span></p>
 		
 		<!------------------By Born-------------------->
-		<p class="tip" style="background-color:#00000000;"><span id="warm-tip"></span></p>
+		<p class="tip" style="background-color:transparent;"><span id="warm-tip"></span></p>
 		<!--------------------------------------------->
 		
 		<p class="sub" style="width:300px ">
@@ -69,10 +69,11 @@ if ($_POST['pn_post']=='注册'){
 	$('#username').keyup(function(){
 		//判断username 输入框是否为数字 数字返回false， 非数字返回true
 		if(isNaN($('#username').val())){
-			$(".tip")[0].style.display = "block";
+			$(".tip")[0].style.backgroundColor = "#dc7878";
 			$("#warm-tip")[0].innerText = "非数字";
 		}else{
-			$(".tip")[0].style.background-color = "#00000000";
+			$(".tip")[0].style.backgroundColor = "transparent";
+			$("#warm-tip")[0].innerText = "";
 		}
 	})
 	/**************************************************/
