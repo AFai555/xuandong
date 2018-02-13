@@ -45,19 +45,36 @@ if ($_POST['pn_post']=='注册'){
 	  <input name="password" type="password" id="password" maxlength="15" />
 	</span></a></h1>
     <div class="box">
-     <h2>10秒快速注册</h2>
-       <p class="nop"><span style="width:180px">QQ号/帐号：</span><input name="username" type="text" id="username" maxlength="11"/> (亲，请确保QQ号是真实的，找回密码需要用到) </p>
+    <h2>10秒快速注册</h2>
+		<p class="nop"><span style="width:180px">QQ号/帐号：</span><input name="username" type="text" id="username"/> (亲，请确保QQ号是真实的，找回密码需要用到) </p>
         <p class="nop"><span  style="width:180px">设置密码：</span> 
-          <input name="pasd" type="password" id="pasd" maxlength="15" />
+			<input name="pasd" type="password" id="pasd" maxlength="15" />
         (与真正QQ登录密码不同，此为本平台登录密码) </p>
-      <p><span  style="width:180px">验证码：</span><input name="VerifyCode" type="text" maxlength="4" id="VerifyCode" style="width:80px;" />&nbsp;<span style="width:80px"><img src="myadmin/imgcode.php" title="看不清楚？点击刷新！" align="absmiddle" onClick="this.src='myadmin/imgcode.php?tm='+Math.random()" /></span><span> <strong id="errorTxt"></strong></span></p>
-       
-        <p class="sub" style="width:300px ">
-       	  <input name="submit" type="button" id="submit" value="注册" />
-            <a href="login.php">已有帐号，现在立即登陆</a>
-        </p>
+		<p><span  style="width:180px">验证码：</span><input name="VerifyCode" type="text" maxlength="4" id="VerifyCode" style="width:80px;" />&nbsp;<span style="width:80px"><img src="myadmin/imgcode.php" title="看不清楚？点击刷新！" align="absmiddle" onClick="this.src='myadmin/imgcode.php?tm='+Math.random()" /></span><span> <strong id="errorTxt"></strong></span></p>
+		
+		<!------------------By Born-------------------->
+		<p class="tip" style="background-color:#00000000;"><span id="warm-tip"></span></p>
+		<!--------------------------------------------->
+		
+		<p class="sub" style="width:300px ">
+		  <input name="submit" type="button" id="submit" value="注册" />
+			<a href="login.php">已有帐号，现在立即登陆</a>
+		</p>
     </div>
     <div class="foot"><span>客服QQ：<a href="tencent://message/?uin=<?php echo $config_qa?>"><img src="images/pa.gif" align="absmiddle" /></a> 电话：<?php echo $c_tel?></span><?php echo $config_name?>---新闻软文自助发布平台</div>
 </div>
 </body>
+<script>
+	/**********************By Born*********************/
+	$('#username').keyup(function(){
+		//判断username 输入框是否为数字 数字返回false， 非数字返回true
+		if(isNaN($('#username').val())){
+			$(".tip")[0].style.display = "block";
+			$("#warm-tip")[0].innerText = "非数字";
+		}else{
+			$(".tip")[0].style.background-color = "#00000000";
+		}
+	})
+	/**************************************************/
+</script>
 </html>
