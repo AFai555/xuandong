@@ -54,7 +54,7 @@ if ($_POST['pn_post']=='注册'){
 		
 		<p class="sub" style="width:300px ">
 			<input name="submit" type="button" id="submit" value="注册" />
-			<a href="login.php">已有帐号，现在立即登陆</a>
+			<a href="/">已有帐号，现在立即登陆</a>
 		</p>
     </div>
     <div class="foot"><span>客服QQ：<a href="tencent://message/?uin=<?php echo $config_qa?>"><img src="images/pa.gif" align="absmiddle" /></a> 电话：<?php echo $c_tel?></span><?php echo $config_name?>---新闻软文自助发布平台</div>
