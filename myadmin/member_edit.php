@@ -11,11 +11,13 @@ if ($_GET['act']=='xiugai' && isset($_POST['uid'])) {
 	$data['qq']=$_POST['qq']	;
 	$data['mail']=$_POST['mail'];
 	$data['regtime']=$_POST['regtime'];
+  $data['grade'] = $_POST['grade'];
 	if ($_POST['password']!='') $data['my_password']=md5($_POST['password']);
 	_update('member',$data,$uid);
 	ShowMsg('成功：会员修改成功',$PreviousUrl);
 }
 $row=_get_one('member',$_GET['id']);
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -50,10 +52,10 @@ $row=_get_one('member',$_GET['id']);
       <!-- 增加会员等级 -->
       <!-- 可以参照case_edit.php 的“地区” -->
       <dt><em>会员等级：</em>
-        <select name="vip">
-          <option>普通会员</option>
-          <option>高级会员</option>
-          <option selected="selected">钻石会员</option>
+        <select name="grade">
+          <option selected="selected" value="普通会员">普通会员</option>
+          <option value="高级会员">高级会员</option>
+          <option value="钻石会员">钻石会员</option>
         </select>
       </dt>
 

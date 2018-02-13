@@ -5,14 +5,16 @@ if ($_GET['act']=='xiugai') {
 	
 	$PreviousUrl=$_POST['PreviousUrl'];
 	$data['kd']=$_POST['kd']	;
-	$data['name1']=$_POST['name1']	;
+	//$data['name1']=$_POST['name1']	;
 	$data['lv1']=$_POST['lv1']	;
-	$data['name2']=$_POST['name2']	;
-	$data['lv2']=$_POST['lv2']	;
-	if ($data['name1']=='') ShowMsg('错误：普通会员消费金额不能为空','-1');
-	if ($data['lv1']=='') ShowMsg('错误：普通会享受折扣不能大于1','-1');
-	if ($data['name2']=='') ShowMsg('错误：高级会员消费金额不能为空','-1');
-	if ($data['lv2']=='') ShowMsg('错误：高级通会享受折扣不能大于1','-1');
+	//$data['name2']=$_POST['name2']	;
+	$data['lv2']=$_POST['lv2'] ;
+  $data['lv3']=$_POST['lv3']  ;
+	//if ($data['name1']=='') ShowMsg('错误：普通会员消费金额不能为空','-1');
+	if ($data['lv1']=='') ShowMsg('错误：普通会员享受折扣不能为空','-1');
+	//if ($data['name2']=='') ShowMsg('错误：高级会员消费金额不能为空','-1');
+	if ($data['lv2']=='') ShowMsg('错误：高级会员享受折扣不能为空','-1');
+  if ($data['lv3']=='') ShowMsg('错误：钻石会员享受折扣不能为空','-1');
 	_update('vip',$data,1);
 	ShowMsg('成功：会员信息成功',$PreviousUrl);
 		
@@ -57,17 +59,17 @@ $row=_get_one('vip',1);
         <input name="lv2" type="text" id="lv2" size="10" value="<php echo $row['lv2']?>" />
         <span class="textinput">  ---高级会员享受的价格折扣--1为不打折--0.9为打九折以此类推。</span></dt> -->
 
-        <dt>普通会员：
-        <input name="name1" type="text" id="name1" size="10" value="<?php echo $row['name1']?>" />
-        <span class="textinput">元   ---普通会员比成本价高15元</span></dt>
+      <dt>普通会员：
+        <input name="lv1" type="text" id="lv1" size="10" value="<?php echo $row['lv1']?>" />
+        <span class="textinput">元   ---默认普通会员比成本价高15元</span></dt>
       
       <dt>高级会员：
-        <input name="name2" type="text" id="name2" size="10" value="<?php echo $row['name2']?>" />
-        <span class="textinput">元 ---高级会员比成本价高10元</span></dt>
+        <input name="lv2" type="text" id="lv2" size="10" value="<?php echo $row['lv2']?>" />
+        <span class="textinput">元 ---默认高级会员比成本价高10元</span></dt>
 
       <dt>钻石会员：
-        <input name="name3" type="text" id="name3" size="10" value="<?php echo $row['name3']?>" />
-        <span class="textinput">元 ---钻石会员比成本价高5元</span></dt>
+        <input name="lv3" type="text" id="lv3" size="10" value="<?php echo $row['lv3']?>" />
+        <span class="textinput">元 ---默认钻石会员比成本价高5元</span></dt>
 
 
       <dt>

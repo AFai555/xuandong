@@ -122,7 +122,7 @@ while (!!$row=_mysql_list($_result)) {
       <td width="12%" align="center"><?php echo $row['my_username']?></td>
       <td width="12%" align="center"><?php echo $row['nickname']?></td>
       <td width="12%" align="center"><?php echo $row['tel']?></td>
-      <td width="6%" align="center">会员等级</td>
+      <td width="6%" align="center"><?php echo $row['grade']?></td>
       <td width="6%" align="center"><a href="gaojian.php?uid=<?php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><?php echo gaojian_num($row['id'])?></a></td>
       <!-- <td width="6%" align="center"><a href="gaojianwb.php?uid=<php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><php echo weibo_num($row['id'])?></a></td>
       <td width="6%" align="center"><a href="gaojianlt.php?uid=<php echo $row['id']?>" style="text-decoration:underline; color:#0066FF;"><php echo luntan_num($row['id'])?></a></td>

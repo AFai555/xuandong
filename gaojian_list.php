@@ -214,16 +214,15 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 								<!-- 输出价格 -->
 								<?php  if ($_SESSION['userid']) { ?>
 								<?php if($vip['kd']=='1') {?>   
-								<td><p ><del><?php echo $row2['price']?>元</del></p></td>
-
+								<!-- <td><p ><del><?php echo $row2['price']?>元</del></p></td> -->
 									<?php if($price['price'] > $vip['name1']) {?>
-											<?php if($price['price'] > $vip['name2']) {?>
-											<td><p class="price"><?php echo $row2['price']* $vip['lv2'] ?>元</p></td>
-											<?php } else  {?>
-											<td><p class="price"><?php echo $row2['price']* $vip['lv1'] ?>元</p></td>
+											<?php if($_SESSION['user_grade'] == "钻石会员") {?>
+											<td><p class="price"><?php echo $row2['price']+ $vip['lv3'] ?>元</p></td>
+											<?php } else if($_SESSION['user_grade'] == "高级会员") {?>
+											<td><p class="price"><?php echo $row2['price']+ $vip['lv2'] ?>元</p></td>
 												<?php }  ?>            
 									<?php } else  {?>
-										<td><p class="price"><?php echo $row2['price'] ?>元</p></td>
+										<td><p class="price"><?php echo $row2['price']+ $vip['lv1'] ?>元</p></td>
 									<?php }  ?>  
 							
 								<?php } else {?>

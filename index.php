@@ -23,6 +23,7 @@ if ($_POST['pn_post']=='登陆'){
 	}else{
 		$_SESSION['userid']=$row['id'];
 		$_SESSION['user_name']=$row['my_username'];
+		$_SESSION['user_grade']=$row['grade'];
 		if (time()-strtotime($row['regtime'])>$config_time){
 			$_SESSION['referee']=0;
 		}else{
