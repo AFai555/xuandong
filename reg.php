@@ -57,7 +57,7 @@ if ($_POST['pn_post']=='注册'){
 		<!--*********************************************-->
 		
 		<p class="sub" style="width:300px ">
-		  <input name="submit" type="button" id="submit" value="注册" />
+			<input name="submit" type="button" id="submit" value="注册" />
 			<a href="login.php">已有帐号，现在立即登陆</a>
 		</p>
     </div>
@@ -70,6 +70,8 @@ if ($_POST['pn_post']=='注册'){
 		//判断username 输入框是否为数字 数字返回false， 非数字返回true
 		if(isNaN($('#username').val()) || $('#username').val().length < 5 || $('#username').val().length > 11){
 			if($('#username').val().length==0){
+				$(".tip")[0].style.backgroundColor = "transparent";
+				$("#warm-tip")[0].innerText = "";
 				return;
 			}
 			$(".tip")[0].style.backgroundColor = "#dc7878";
