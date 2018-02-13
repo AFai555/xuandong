@@ -2,7 +2,7 @@
 require 'session.php';
 $vip=_mysql_show("SELECT * FROM vip WHERE id= 1");
 if ($_SESSION['userid']) {
-$price=_mysql_show("select  ( (SELECT if(sum( money) is null,0,sum(money)) FROM `caiwu` WHERE uid = ".$_SESSION['userid']." and lx = 2)-(SELECT if(sum( money) is null,0,sum(money)) FROM `caiwu` WHERE uid = ".$_SESSION['userid']." and lx = 3)) as price from member where  id = ".$_SESSION['userid']);
+	$price=_mysql_show("select  ( (SELECT if(sum( money) is null,0,sum(money)) FROM `caiwu` WHERE uid = ".$_SESSION['userid']." and lx = 2)-(SELECT if(sum( money) is null,0,sum(money)) FROM `caiwu` WHERE uid = ".$_SESSION['userid']." and lx = 3)) as price from member where  id = ".$_SESSION['userid']);
 }
 /*
 //加入购物车
@@ -40,11 +40,11 @@ if ($_GET['act']=='cart_all_del'){
 */
 //购物车内容
 function cartBox(){
-if ($_SESSION['userid']) {
-	$r_html='已选择的媒体：<span id="checkbox_select_website_list"></span>';
-}else{
-	$r_html.='<a href="login.php" target="_blank" class="addsub">您还未登陆会员</a>';
-}
+	if ($_SESSION['userid']) {
+		$r_html='已选择的媒体：<span id="checkbox_select_website_list"></span>';
+	}else{
+		$r_html.='<a href="login.php" target="_blank" class="addsub">您还未登陆会员</a>';
+	}
 	return $r_html;
 }
 
@@ -339,10 +339,13 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 	})
 
 	$(".addcart").click(function(event) {
-
+		
 		if($(this).is(":checked")){
-
-			__str=''
+			/******************By Born*******************/
+			var mc = '';
+			/********************************************/
+			
+			__str='';
 
 			$.getJSON('cart.php', {id: $(this).val()}, function(json, textStatus) {
 
@@ -353,10 +356,19 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 						__str=__str+el.name+' '+el.price+'元<a style="cursor:pointer;" onclick="cx(\''+el.id+'\')">[删]</a> ';
 
 						$('#c_id_'+el.id).attr('checked', 'checked');
+						
+						/******************By Born*******************/
+						mc += el.name + '<em>' + el.price + '</em>元 ';
+						/********************************************/
 
 					});
 
 					__str=__str+' 总计 '+json.zj+' 元 <a style="cursor:pointer;" onclick="cx(\'0\')">【全部清空】</a>';
+					
+					/*****************By Born*********************/
+					mc += '总计<em><strong>' + json.zj + '</strong></em>元 ';
+					$(".mc")[1].innerHTML = mc;
+					/*********************************************/
 
 					$("#checkbox_select_website_list").html(__str)
 
@@ -371,6 +383,9 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 			
 
 		}else{
+			/******************By Born*******************/
+			var mc = '';
+			/********************************************/
 
 			__str=''
 
@@ -383,11 +398,19 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 						__str=__str+el.name+' '+el.price+'元<a style="cursor:pointer;" onclick="cx(\''+el.id+'\')">[删]</a> ';
 
 						$('#c_id_'+el.id).attr('checked', 'checked');
-
+						
+						/******************By Born*******************/
+						mc += el.name + '<em>' + el.price + '</em>元 ';
+						/********************************************/
 					});
 
 					__str=__str+' 总计 '+json.zj+' 元 <a style="cursor:pointer;" onclick="cx(\'0\')">【全部清空】</a>';
-
+					
+					/*****************By Born*********************/
+					mc += '总计<em><strong>' + json.zj + '</strong></em>元 ';
+					$(".mc")[1].innerHTML = mc;
+					/*********************************************/
+					
 					$("#checkbox_select_website_list").html(__str)
 
 				}else{
