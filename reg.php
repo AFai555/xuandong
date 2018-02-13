@@ -52,10 +52,6 @@ if ($_POST['pn_post']=='注册'){
         (与真正QQ登录密码不同，此为本平台登录密码) </p>
 		<p><span  style="width:180px">验证码：</span><input name="VerifyCode" type="text" maxlength="4" id="VerifyCode" style="width:80px;" />&nbsp;<span style="width:80px"><img src="myadmin/imgcode.php" title="看不清楚？点击刷新！" align="absmiddle" onClick="this.src='myadmin/imgcode.php?tm='+Math.random()" /></span><span> <strong id="errorTxt"></strong></span></p>
 		
-		<!--*******************By Born*******************-->
-		<div class="tip" style="background-color:transparent;width: 150px; text-align: center; padding-right: px; margin-left: 185px; height: 20px; font-size: 14px; line-height: 1.5; font-family: '黑体'; color: white;"><span id="warm-tip"></span></div>
-		<!--*********************************************-->
-		
 		<p class="sub" style="width:300px ">
 			<input name="submit" type="button" id="submit" value="注册" />
 			<a href="login.php">已有帐号，现在立即登陆</a>
@@ -64,23 +60,4 @@ if ($_POST['pn_post']=='注册'){
     <div class="foot"><span>客服QQ：<a href="tencent://message/?uin=<?php echo $config_qa?>"><img src="images/pa.gif" align="absmiddle" /></a> 电话：<?php echo $c_tel?></span><?php echo $config_name?>---新闻软文自助发布平台</div>
 </div>
 </body>
-<script>
-	/**********************By Born*********************/
-	$('#username').keyup(function(){
-		//判断username 输入框是否为数字 数字返回false， 非数字返回true
-		if(isNaN($('#username').val()) || $('#username').val().length < 5 || $('#username').val().length > 11){
-			if($('#username').val().length==0){
-				$(".tip")[0].style.backgroundColor = "transparent";
-				$("#warm-tip")[0].innerText = "";
-				return;
-			}
-			$(".tip")[0].style.backgroundColor = "red";
-			$("#warm-tip")[0].innerText = "QQ号应为5-11位数字";
-		}else{
-			$(".tip")[0].style.backgroundColor = "transparent";
-			$("#warm-tip")[0].innerText = "";
-		}
-	})
-	/**************************************************/
-</script>
 </html>
