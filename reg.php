@@ -52,9 +52,9 @@ if ($_POST['pn_post']=='注册'){
         (与真正QQ登录密码不同，此为本平台登录密码) </p>
 		<p><span  style="width:180px">验证码：</span><input name="VerifyCode" type="text" maxlength="4" id="VerifyCode" style="width:80px;" />&nbsp;<span style="width:80px"><img src="myadmin/imgcode.php" title="看不清楚？点击刷新！" align="absmiddle" onClick="this.src='myadmin/imgcode.php?tm='+Math.random()" /></span><span> <strong id="errorTxt"></strong></span></p>
 		
-		<!------------------By Born-------------------->
-		<p class="tip" style="background-color:transparent;"><span id="warm-tip"></span></p>
-		<!--------------------------------------------->
+		<!--*******************By Born*******************-->
+		<div class="tip" style="background-color:transparent;width: 91.3px; text-align: center; padding-right: px; margin-left: 185px; height: 20px; font-size: 14px; line-height: 1.5; font-family: "黑体";"><span id="warm-tip"></span></div>
+		<!--********************************************-->
 		
 		<p class="sub" style="width:300px ">
 		  <input name="submit" type="button" id="submit" value="注册" />
