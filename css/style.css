@@ -94,7 +94,7 @@ table{ border-collapse:collapse;}
 .meitiBox .siteBox{ float: left; width: 960px;}
 .meitiBox ul li .site p{display: inline-block;}
 .meitiBox .aBorder1{ margin: 0px 10px 5px 10px;}
-.meitiBox .aBorder2{ margin: 0px 15px; border-bottom: 1px dashed gray;}
+.meitiBox .aBorder2{ margin: 0px 15px 5px 15px; border-bottom: 1px dashed gray;}
 
 /*weblist*/
 .weblist{ background:#F1F3F9; font-size:13px;}

@@ -52,11 +52,11 @@ $sql_seach=" WHERE uid={$_SESSION['userid']} AND zt>0".$sql_seach;
     <?php require 'user_top_tp.php'?>
   <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>
-    <div class="add_buzhuo">
+    <!-- <div class="add_buzhuo">
     	<a href="gaojian_list.php">第一步：选择需要发布的网站媒体</a>
     	<a href="gaojian_add.php">第二步：添加并提交软文稿件内容</a>
     	<a href="gaojian_admin.php" class="online">第三步：查看软文发布进度结果</a>
-    </div>
+    </div> -->
     <div class="meiti_search">
 <form action="" method="get">
     文章标题

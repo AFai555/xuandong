@@ -201,8 +201,8 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 	<?php
 		$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
 		$_printBorder=_query("SELECT COUNT(*) FROM meiti");
-		$_printBorder = $_printBorder - 1;
-		echo "<p>".$_printBorder."</p>";
+		$arr = mysql_fetch_row($_printBorder);
+		$_printBorder2 = $arr[0] - 1;
 		$printNum = 0;
 		while (!!$row=_mysql_list($_result)) {
 		?>
@@ -233,7 +233,7 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 								 	if($vip['kd']=='1') { 
 										if($_SESSION['user_grade']=="钻石会员") {
 											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
-											echo '<td><p class="price">'.($row2['price']+ $vip['lv3']).'元</p></td>';								
+											echo '<td><p class="price">'.($row2['price']+ $vip['lv3']).'元</p></td>';
 										} else if($_SESSION['user_grade']=="高级会员") {
 											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
 											echo '<td><p class="price">'.($row2['price']+ $vip['lv2']).'元</p></td>';
@@ -251,7 +251,7 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 				</ul>
 				<div class="clear"></div>
 				<?php
-				if($printNum < $_printBorder ) {
+				if($printNum < $_printBorder2 ) {
 					echo '<div class="aBorder2"></div>';
 					$printNum++;
 				}
