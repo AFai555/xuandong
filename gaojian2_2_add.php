@@ -17,9 +17,6 @@ $cartBoxHtml=cartBox();
 
 if ($_POST['pn_post']=='立即提交稿件'){
 	$data['title']=$_POST['title'];
-	$data['beizhu']=$_POST['beizhu'];
-	$data['wangzhi']=$_POST['wangzhi'];
-	$data['jiegao']=$_POST['jiegao'];
 	$data['zt']=1;
 	$data['baoimg']='index.php';
 	$data['addtime']=_nowtime();

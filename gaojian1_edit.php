@@ -6,9 +6,6 @@ if ($_POST['pn_post']=='确定修改稿件'){
 	$PreviousUrl=$_POST['PreviousUrl'];
 	$data['title']=$_POST['title'];
 	$data['content']=$_POST['content'];
-	$data['beizhu']=$_POST['beizhu'];
-	$data['wangzhi']=$_POST['wangzhi'];
-	$data['jiegao']=$_POST['jiegao'];
 	
 	if ($data['title']=='') ShowMsg('错误：稿件标题不能为空！','-1');
 	if ($data['content']=='') ShowMsg('错误：稿件内容不能为空！','-1');
