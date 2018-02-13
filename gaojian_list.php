@@ -126,9 +126,6 @@ $cartBoxHtml=cartBox2();
 if ($_POST['pn_post']=='立即提交稿件'){
 	$data['title']=$_POST['title'];
 	$data['content']=getcontent($_POST['content']);
-	$data['beizhu']=$_POST['beizhu'];
-	$data['wangzhi']=$_POST['wangzhi'];
-	$data['jiegao']=$_POST['jiegao'];
 	$data['zt']=1;
 	$data['baoimg']='index.php';
 	$data['addtime']=_nowtime();
@@ -144,7 +141,6 @@ if ($_POST['pn_post']=='立即提交稿件'){
 	if (!_get_one_tj('member',"id={$_SESSION['userid']} AND money>={$z_price}")) ShowMsg('提示：您的余额不足请充值！','-1');
 	_update_tj('cart',$data,"uid={$_SESSION['userid']} AND zt=0");
 	_query("UPDATE member SET money=money-{$z_price} WHERE id='{$_SESSION['userid']}'");
-	
 	$data2['uid']=$_SESSION['userid'];
 	$data2['money']=$z_price;
 	$data2['lx']=2;
