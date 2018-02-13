@@ -52,7 +52,7 @@ if ($row['uid']!=$_SESSION['userid'] || $row['zt']!=1) ShowMsg('错误：您无�
       <!-- <tr>
         <td height="270"><p class="mc">附言<em>*必填</em></p></td>
         <td><p class="mc">
-          <textarea name="beizhu" cols="110" rows="6" id="beizhu"><?php echo $row['beizhu']?></textarea>
+          <textarea name="beizhu" cols="110" rows="6" id="beizhu"><php echo $row['beizhu']?></textarea>
         </p>
             <p class="mc pt10"><em>提示必看：</em>亲们，为了减少沟通时间成本和不必要的纠纷，请在附言里注明以下几条说明<br />
               1、有些网站标题只能显示17个字，请提供一条17个字内的备用标题<br />
@@ -64,20 +64,20 @@ if ($row['uid']!=$_SESSION['userid'] || $row['zt']!=1) ShowMsg('错误：您无�
       <tr>
         <td height="40"><p class="mc">网址强调<em>*必填</em></p></td>
         <td><p class="mc">
-          <input name="wangzhi" type="radio" id="radio" value="1" <?php echo _danxuan(1,$row['wangzhi'])?> />
+          <input name="wangzhi" type="radio" id="radio" value="1" <php echo _danxuan(1,$row['wangzhi'])?> />
           稿件里网址不带都无所谓（推荐）
-           <input type="radio" name="wangzhi" id="radio" value="2" <?php echo _danxuan(2,$row['wangzhi'])?> />
+           <input type="radio" name="wangzhi" id="radio" value="2" <php echo _danxuan(2,$row['wangzhi'])?> />
           稿件里网址一定要带上，否则不发
-          <input type="radio" name="wangzhi" id="radio" value="3" <?php echo _danxuan(3,$row['wangzhi'])?> />
+          <input type="radio" name="wangzhi" id="radio" value="3" <php echo _danxuan(3,$row['wangzhi'])?> />
           稿件里关键字超链一定要带上，否则不发 
        </p></td>
       </tr>
       <tr>
         <td height="40"><p class="mc">截稿时间<em>*必填</em></p></td>
         <td><p class="mc">
-          <input name="jiegao" type="radio" id="radio2" value="1" <?php echo _danxuan(1,$row['jiegao'])?> />
+          <input name="jiegao" type="radio" id="radio2" value="1" <php echo _danxuan(1,$row['jiegao'])?> />
           因编辑原因当天未完成发布，隔天也可以等（推荐）
-  <input type="radio" name="jiegao" id="radio2" value="2" <?php echo _danxuan(2,$row['jiegao'])?> />
+  <input type="radio" name="jiegao" id="radio2" value="2" <php echo _danxuan(2,$row['jiegao'])?> />
         当天要完成发布，超时就撤消稿件 </p></td>
       </tr> -->
     </table>
