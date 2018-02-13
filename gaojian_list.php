@@ -202,6 +202,7 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 		$_result=_query("SELECT * FROM meiti ORDER BY px_id ASC");
 		$_printBorder=_query("SELECT COUNT(*) FROM meiti");
 		$_printBorder = $_printBorder - 1;
+		echo "<p>".$_printBorder."</p>";
 		$printNum = 0;
 		while (!!$row=_mysql_list($_result)) {
 		?>
