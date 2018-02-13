@@ -212,25 +212,21 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 								<?php endif ;?>
 
 								<!-- 输出价格 -->
-								<?php  if ($_SESSION['userid']) { ?>
-								<?php if($vip['kd']=='1') {?>   
-								<!-- <td><p ><del><?php echo $row2['price']?>元</del></p></td> -->
-									<?php if($price['price'] > $vip['name1']) {?>
-											<?php if($_SESSION['user_grade'] == "钻石会员") {?>
-											<td><p class="price"><?php echo $row2['price']+ $vip['lv3'] ?>元</p></td>
-											<?php } else if($_SESSION['user_grade'] == "高级会员") {?>
-											<td><p class="price"><?php echo $row2['price']+ $vip['lv2'] ?>元</p></td>
-												<?php }  ?>            
-									<?php } else  {?>
-										<td><p class="price"><?php echo $row2['price']+ $vip['lv1'] ?>元</p></td>
-									<?php }  ?>  
-							
-								<?php } else {?>
-								<td><p class="price"><?php echo $row2['price']?>元</p></td>
-								<?php } ?> 
-								<?php } else {?>  
-										<td><p class="price"><?php echo $row2['price']?>元</p></td>
-										<?php } ?>
+								<?php  
+								if ($_SESSION['userid']) {
+								 	if($vip['kd']=='1') { 
+										if($_SESSION['user_grade']=="钻石会员") {
+											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
+											echo '<td><p class="price">'.($row2['price']+ $vip['lv3']).'元</p></td>';								
+										} else if($_SESSION['user_grade']=="高级会员") {
+											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
+											echo '<td><p class="price">'.($row2['price']+ $vip['lv2']).'元</p></td>';
+										} else {
+											echo '<td><p class="price">'.($row2['price']+ $vip['lv1']).'元</p></td>';
+										}
+									}
+								}
+								?>
 							</span>
 							</div>
 						</li>
