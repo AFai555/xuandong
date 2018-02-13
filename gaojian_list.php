@@ -425,6 +425,9 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 	});
 
 	function cx(_s){
+		/******************By Born*******************/
+		var mc = '';
+		/********************************************/
 
 		__str=''
 
@@ -436,18 +439,25 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 
 				$.each(json.arr,function(index, el) {
 
-						__str=__str+el.name+' '+el.price+'元<a style="cursor:pointer;" onclick="cx(\''+el.id+'\')">[删]</a> ';
+					__str=__str+el.name+' '+el.price+'元<a style="cursor:pointer;" onclick="cx(\''+el.id+'\')">[删]</a> ';
 
 
 
 					$('#c_id_'+el.id).attr('checked', 'checked');
-
+					
+					/******************By Born*******************/
+					mc += el.name + '<em>' + el.price + '</em>元 ';
+					/********************************************/
 				});
 
-					__str=__str+' 总计 '+json.zj+' 元 <a style="cursor:pointer;" onclick="cx(\'0\')">【全部清空】</a>';
+				__str=__str+' 总计 '+json.zj+' 元 <a style="cursor:pointer;" onclick="cx(\'0\')">【全部清空】</a>';
 
-				$("#checkbox_select_website_list").html(__str)
-
+				$("#checkbox_select_website_list").html(__str);
+				
+				/*****************By Born*********************/
+				mc += '总计<em><strong>' + json.zj + '</strong></em>元 ';
+				$(".mc")[1].innerHTML = mc;
+				/*********************************************/
 			}else{
 				$("#checkbox_select_website_list").html('您还未选择媒体，将不能提交稿件')
 			}
