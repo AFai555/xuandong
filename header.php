@@ -9,7 +9,7 @@ $logo_url=_get_one('logo_up','1');
 
 <div class="header" style="padding-top: 0px;padding-bottom: 37px;">
   <div class="wrapper" style="width: 100%;">
-    <div class="logo"> <a href="/login.php"  target="_parent" title="首页"><img src="<?php echo $logo_url['imgurl']?>" alt="logo"></a> </div>
+    <div class="logo"> <a href="/"  target="_parent" title="首页"><img src="<?php echo $logo_url['imgurl']?>" alt="logo"></a> </div>
     <!--logo end-->
     <div class="txt"> <strong><?php echo $config_d_dis?></strong>  </div>
     <div class="tel" style="top: 25px;left: 1100px;"> <div class="contact">
