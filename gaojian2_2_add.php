@@ -2,18 +2,33 @@
 require 'session.php';
 
 //购物车内容
-function cartBox(){
+function cartBox2(){
 	$_result=_query("SELECT * FROM cart WHERE uid={$_SESSION['userid']} AND zt=0");
+	$vip=_mysql_show("SELECT * FROM vip WHERE id= 1");
 	global $z_price;
 	$z_price=0;
 	while (!!$row=_mysql_list($_result)) {
-		$r_html.=getDbName('meiti_case','title',$row['pid']).'<em>'.$row['price'].'</em>元 ';
-		$z_price+=$row['price'];
+
+		if ($_SESSION['userid']) {
+		 	if($vip['kd']=='1') { 
+				if($_SESSION['user_grade']=="钻石会员") {
+					$price=$row['price']+$vip['lv3'];		
+				} else if($_SESSION['user_grade']=="高级会员") {
+					$price=$row['price']+$vip['lv2'];
+				} else {
+					$price=$row['price']+$vip['lv1'];
+				}
+			}
+
+		} else $price=$row['price'];
+
+		$r_html.=getDbName('meiti_case','title',$row['pid']).'<em>'.$price.'</em>元 ';
+		$z_price+=$price;
 	}
 	$r_html.='总计<em><strong>'.$z_price.'</strong></em>元 ';
 	return $r_html;
 }
-$cartBoxHtml=cartBox();
+$cartBoxHtml=cartBox2();
 
 if ($_POST['pn_post']=='立即提交稿件'){
 	$data['title']=$_POST['title'];
