@@ -21,28 +21,27 @@ if($id>0){
 		$data['pid']=$_GET['id'];
 		$data['uid']=$_SESSION['userid'];
 		$data['referee']=$_SESSION['referee'];
-		$data['price']=$row['price'];
+
+		if ($_SESSION['userid']) {
+		 	if($vip['kd']=='1') { 
+				if($_SESSION['user_grade']=="钻石会员") {
+					$data['price']=$row['price']+$vip['lv3'];				
+				} else if($_SESSION['user_grade']=="高级会员") {
+					$data['price']=$row['price']+$vip['lv2'];
+				} else {
+					$data['price']=$row['price']+$vip['lv1'];
+				}
+			}
+		}	
 		_insert('cart',$data);
 	}
 }
 $_result=_query("SELECT * FROM cart WHERE uid={$_SESSION['userid']} AND zt=0");
 $z_price=0;
 $list=array();
-while (!!$row=_mysql_list($_result)) {
-	if ($_SESSION['userid']) {
-	 	if($vip['kd']=='1') { 
-			if($_SESSION['user_grade']=="钻石会员") {
-				$a['price']=$row['price']+$vip['lv3'];				
-			} else if($_SESSION['user_grade']=="高级会员") {
-				$a['price']=$row['price']+$vip['lv2'];
-			} else {
-				$a['price']=$row['price']+$vip['lv1'];
-			}
-		}
-	}	
-	
+while (!!$row=_mysql_list($_result)) {	
 	$a['name']=getDbName('meiti_case','title',$row['pid']);
-	
+	$a['price']=$row['price'];
 	$a['id']=$row['pid'];
 	$z_price+=$a['price'];
 	$list[]=$a;

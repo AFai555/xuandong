@@ -1,6 +1,6 @@
 <?php
 require 'session.php';
-$vip=_mysql_show("SELECT * FROM vip WHERE id= 1");
+
 function cart_zt($str){
 	if ($str==1){
 		return '<p style="color:#0000FF;">待收稿</p>';
@@ -99,23 +99,7 @@ while (!!$row=_mysql_list($_result)) {
     <td><?php echo $row['bianhao']?></td>
     <td><?php echo $row['title']?></td>
     <td><?php echo cart_case($row['pid'])?></td>
-    <td><p class="price">
-        <?php
-        if ($_SESSION['userid']) {
-            if($vip['kd']=='1') { 
-                if($_SESSION['user_grade']=="钻石会员") {
-                    $price=$row['price']+$vip['lv3'];              
-                } else if($_SESSION['user_grade']=="高级会员") {
-                    $price=$row['price']+$vip['lv2'];
-                } else {
-                    $price=$row['price']+$vip['lv1'];
-                }
-                echo $price;
-            } else {
-                echo $row['price'];
-            }
-        }   
-        ?>元</p></td>
+    <td><p class="price"><?php echo $row['price']?>元</p></td>
     <td><?php echo cart_zt($row['zt'])?></td>
     <td><?php echo $row['addtime']?></td>
     <td>

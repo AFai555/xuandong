@@ -17,21 +17,9 @@ $_result=_query("SELECT * FROM cart WHERE uid={$_SESSION['userid']} AND zt=0");
 $z_price=0;
 $list=array();
 while (!!$row=_mysql_list($_result)) {
-	if ($_SESSION['userid']) {
-	 	if($vip['kd']=='1') { 
-			if($_SESSION['user_grade']=="钻石会员") {
-				$a['price']=$row['price']+$vip['lv3'];				
-			} else if($_SESSION['user_grade']=="高级会员") {
-				$a['price']=$row['price']+$vip['lv2'];
-			} else {
-				$a['price']=$row['price']+$vip['lv1'];
-			}
-		}
-	}	
-	
-	
 	$a['name']=getDbName('meiti_case','title',$row['pid']);
 	$a['id']=$row['pid'];
+	$a['price']=$row['price'];
 	$z_price+=$a['price'];
 	$list[]=$a;
 }

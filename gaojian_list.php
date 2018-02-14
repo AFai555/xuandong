@@ -117,21 +117,8 @@ function cartBox2(){
 	global $z_price;
 	$z_price=0;
 	while (!!$row=_mysql_list($_result)) {
-		if ($_SESSION['userid']) {
-		 	if($vip['kd']=='1') { 
-				if($_SESSION['user_grade']=="钻石会员") {
-					$price=$row['price']+$vip['lv3'];		
-				} else if($_SESSION['user_grade']=="高级会员") {
-					$price=$row['price']+$vip['lv2'];
-				} else {
-					$price=$row['price']+$vip['lv1'];
-				}
-			}
-
-		} else $price=$row['price'];
-
-		$r_html.=getDbName('meiti_case','title',$row['pid']).'<em>'.$price.'</em>元 ';
-		$z_price+=$price;
+		$r_html.=getDbName('meiti_case','title',$row['pid']).'<em>'.$row['price'].'</em>元 ';
+		$z_price+=$row['price'];
 	}
 	$r_html.='总计<em><strong>'.$z_price.'</strong></em>元 ';
 	return $r_html;
