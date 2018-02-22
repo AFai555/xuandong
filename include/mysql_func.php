@@ -4,7 +4,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 function _connect() {
 	//global 表示全局变量的意思，意图是将此变量在函数外部也能访问
 	global $_conn;
-	if (!$_conn = @mysql_connect(DB_HOST,DB_USER,DB_PWD)) {
+	if (!$_conn = mysql_connect(DB_HOST,DB_USER,DB_PWD)) {
 		exit('数据库连接失败');
 	}
 }

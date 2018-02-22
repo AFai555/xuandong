@@ -14,7 +14,9 @@ if ($_GET['act']=='xiugai' && isset($_POST['uid'])) {
   $data['grade'] = $_POST['grade'];
 	if ($_POST['password']!='') $data['my_password']=md5($_POST['password']);
 	_update('member',$data,$uid);
+  _delete_tj('cart',"uid=".$uid." AND zt=0");
 	ShowMsg('成功：会员修改成功',$PreviousUrl);
+return ;
 }
 $row=_get_one('member',$_GET['id']);
 
