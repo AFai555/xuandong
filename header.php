@@ -7,12 +7,12 @@ $logo_url=_get_one('logo_up','1');
 <script src="./other/hm.js"></script><script src="./other/jquery.min.js" type="text/javascript"></script>
 <script src="./other/jquery.sslide.js" type="text/javascript"></script>
 
-<div class="header" style="padding-top: 0px;padding-bottom: 37px;">
+<div class="header" style="padding-top: 0px;">
   <div class="wrapper" style="width: 100%;">
     <div class="logo"> <a href="/"  target="_parent" title="首页"><img src="<?php echo $logo_url['imgurl']?>" alt="logo"></a> </div>
     <!--logo end-->
     <div class="txt"> <strong><?php echo $config_d_dis?></strong>  </div>
-    <div class="tel" style="top: 25px;left: 1100px;"> <div class="contact">
+    <div class="tel" style="top: 2px;left: 1100px;"> <div class="contact">
     	<p>客服QQ:<?php echo $config_qa?><a href="tencent://message/?uin=<?php echo $config_qa?>"><img src="images/pa.gif" align="absmiddle" /></a></p>
         <p>客服24小时值班电话：<?php echo $c_tel?></p>
     </div> </div>
@@ -20,7 +20,7 @@ $logo_url=_get_one('logo_up','1');
   <!--wrapper end-->
 </div>
 
-<div class="naver">
+<div class="naver" style="margin-top: -10px;">
   <ul class="wrapper" style="width: 100%;">
     <li><a href="/login.php"  target="_parent">网站首页</a></li>
     <li><a href="admin.php?act=gj" target="_parent">立即发布</a></li>

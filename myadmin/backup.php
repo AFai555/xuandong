@@ -1,9 +1,9 @@
 <?
 global $mysqlhost, $mysqluser, $mysqlpwd, $mysqldb;
-$mysqlhost="localhost"; //host name
-$mysqluser="root";//login name
-$mysqlpwd="";//password
-$mysqldb="";//name of database
+$mysqlhost="120.78.131.21"; //host name
+$mysqluser="xuandong";//login name
+$mysqlpwd="candy.123";//password
+$mysqldb="xuandong";//name of database
 include("mydb.php");
 $d=new db($mysqlhost,$mysqluser,$mysqlpwd,$mysqldb);
 /*--------------界面--------------*/if(!$_POST['act']){/*----------------------*/
