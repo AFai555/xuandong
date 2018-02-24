@@ -129,6 +129,8 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
 										} else {
 											echo '('.round(($row2['price']+ $vip['lv1']),2).'元)';
 										}
+									} else {
+										echo '('.($row2['price']+ $vip['lv1']).'元)';
 									}
 								}
 								?>

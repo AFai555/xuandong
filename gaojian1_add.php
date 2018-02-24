@@ -149,7 +149,9 @@ else alert("你选择的是工商");
 										} else {
 											echo '('.round(($row2['price']+ $vip['lv1']),2).'元)';
 										}
-									}
+									} else {
+										echo '('.($row2['price']+ $vip['lv1']).'元)';
+									}									
 								}
 								?>
 							</span>

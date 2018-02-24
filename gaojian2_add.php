@@ -161,6 +161,8 @@ if ($_GET['act']=='xiugai' && isset($_POST['id'])) {
 										} else {
 											echo '('.round(($row2['price']+ $vip['lv1']),2).'元)';
 										}
+									} else {
+										echo '('.($row2['price']+ $vip['lv1']).'元)';
 									}
 								}
 								?>
