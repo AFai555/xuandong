@@ -205,7 +205,6 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 						$_result2=_query($sql);
 						while (!!$row2=_mysql_list($_result2)) {
 					?>
-						<!-- 在这个地方循环网站，<li>为循环体 -->
 						<li>
 							<div class="site">
 							<input type="checkbox" name="checkbox_media_id" id="c_id_<?php echo $row2['id']?>" class="addcart" value="<?php echo $row2['id']?>" />
@@ -215,19 +214,16 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 								<?php else :?>
 									<a href="<?php echo $row2['link']?>" target="_blank"><?php echo $row2['title']?></a>
 								<?php endif ;?>
-
 								<!-- 输出价格 -->
 								<?php  
 								if ($_SESSION['userid']) {
 								 	if($vip['kd']=='1') { 
 										if($_SESSION['user_grade']=="钻石会员") {
-											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
-											echo '<td><p class="price">'.($row2['price']+ $vip['lv3']).'元</p></td>';
+											echo '('.($row2['price']+ $vip['lv3']).'.00元)';
 										} else if($_SESSION['user_grade']=="高级会员") {
-											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
-											echo '<td><p class="price">'.($row2['price']+ $vip['lv2']).'元</p></td>';
+											echo '('.($row2['price']+ $vip['lv2']).'.00元)';
 										} else {
-											echo '<td><p class="price">'.($row2['price']+ $vip['lv1']).'元</p></td>';
+											echo '('.($row2['price']+ $vip['lv1']).'.00元)';
 										}
 									}
 								}

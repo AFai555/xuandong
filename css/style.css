@@ -89,7 +89,8 @@ table{ border-collapse:collapse;}
 .meitiBox ul li a{ color:#3E5F9B;}
 .meitiBox ul li.nostyle{ border:none; background:none; color:#000000; padding:4px 0px;}
 .meitiBox ul li .site{ width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-.meitiBox ul li .site input:checked + span { color: #337ab7; font-weight: bold;}  
+.meitiBox ul li .site input:checked + span { color: red; font-weight: bold;}  
+.meitiBox ul li .site input:checked + span > a { color: red; font-weight: bold;}  
 .meitiBox .sortName{ float: left; margin-top: 7px; padding-right: 5px; width: 80px; text-align: right;}
 .meitiBox .siteBox{ float: left; width: 960px;}
 .meitiBox ul li .site p{display: inline-block;}

@@ -118,19 +118,16 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
 								<?php else :?>
 									<a href="<?php echo $row2['link']?>" target="_blank"><?php echo $row2['title']?></a>
 								<?php endif ;?>
-
 								<!-- 输出价格 -->
 								<?php  
 								if ($_SESSION['userid']) {
 								 	if($vip['kd']=='1') { 
 										if($_SESSION['user_grade']=="钻石会员") {
-											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
-											echo '<td><p class="price">'.($row2['price']+ $vip['lv3']).'元</p></td>';
+											echo '('.($row2['price']+ $vip['lv3']).'.00元)';
 										} else if($_SESSION['user_grade']=="高级会员") {
-											echo "<td><p ><del>".($row2['price']+ $vip['lv1'])."元</del></p></td>&ensp;";
-											echo '<td><p class="price">'.($row2['price']+ $vip['lv2']).'元</p></td>';
+											echo '('.($row2['price']+ $vip['lv2']).'.00元)';
 										} else {
-											echo '<td><p class="price">'.($row2['price']+ $vip['lv1']).'元</p></td>';
+											echo '('.($row2['price']+ $vip['lv1']).'.00元)';
 										}
 									}
 								}
