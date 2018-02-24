@@ -232,7 +232,7 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 											echo '('.($row2['price']+ $vip['lv1']).'元)';
 										}
 									} else {
-										echo '('.$row2['price'].'元)';
+										echo '('.($row2['price']+ $vip['lv1']).'元)';
 									}
 								}
 								?>

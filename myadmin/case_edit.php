@@ -19,15 +19,22 @@ if ($_GET['act']=='xiugai') {
 	$data['addtime']=_nowtime();
 	$data['hide']=$_POST['hide'];
 	$data['isbao']=$_POST['bao'];
-	
+
 	if ($data['title']=='') ShowMsg('错误：频道名称不能为空','-1');
 	if (!is_numeric($data['cb_price'])) ShowMsg('错误：价格只能是数字','-1');
 	if (!is_numeric($data['price'])) ShowMsg('错误：价格只能是数字','-1');
 	
+  //var_dump($_POST);
 	_update('meiti_case',$data,$id);
 	ShowMsg('成功：案例修改成功，继续添加',$PreviousUrl);
 }
-$row=_get_one('meiti_case',$_GET['id']);
+if ($_GET['id']) {
+  # code...
+  $row=_get_one('meiti_case',$_GET['id']);
+} else if($_POST['id']) {
+  $row=_get_one('meiti_case',$_POST['id']);
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
