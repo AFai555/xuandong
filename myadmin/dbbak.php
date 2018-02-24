@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require 'session.php';
 function write_file($txt,$filename){
 	$re=true;
@@ -167,7 +167,7 @@ $_result=_query('show table status from `'.DB_NAME.'`');
 while (!!$row=_mysql_list($_result)) {
 ?>
         	<li><input name="tables[]" type="checkbox" value="<?php echo $row['Name']; ?>" checked="checked" /><?php echo $row['Name']?></li>
-<?php }?>
+<?php } ?>
 <div class="clear mb10"></div>
     <div>分卷大小：<input name="filesize" type="text" value="1024" size="10"> K</div>
     <div><input type="submit" value="立即备份" onclick="click_go();" class="sub" /></div>
