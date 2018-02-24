@@ -43,8 +43,16 @@ if ($_GET['act']=='bak'){
 		while (!!$v=_mysql_list($_result)) {
 			$tt='';
 			$sql.= 'INSERT INTO `'.$t.'` VALUES(';
-			foreach($v as $f){$tt.= "'".mysql_real_escape_string($f)."'".",";}
+			foreach($v as $f){
+				if(is_null($f)){
+					$tt.="null,";
+				} else {
+					$tt.= "'".mysql_real_escape_string($f)."'".",";
+				}
+			}
 			$sql.= rtrim($tt,',').')'."\r\n";
+
+
 			if(strlen($sql)>=$filesize*1024){
 				if($p==1){$filename.=".php";}else{$filename.="_v".$p.".php";}
 				if(write_file($sql,$filename)){

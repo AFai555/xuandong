@@ -115,8 +115,14 @@ function cartBox2(){
 	$_result=_query("SELECT * FROM cart WHERE uid={$_SESSION['userid']} AND zt=0");
 	$vip=_mysql_show("SELECT * FROM vip WHERE id= 1");
 	global $z_price;
+	//var_dump("执行cartBox2函数");
+	//var_dump($_result);
+	//var_dump($vip);
+	//var_dump($_SESSION);
+	//var_dump(_mysql_list($_result));
 	$z_price=0;
 	while (!!$row=_mysql_list($_result)) {
+		//var_dump($row);
 		$r_html.=getDbName('meiti_case','title',$row['pid']).'<em>'.$row['price'].'</em>元 ';
 		$z_price+=$row['price'];
 	}
@@ -225,6 +231,8 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 										} else {
 											echo '('.($row2['price']+ $vip['lv1']).'元)';
 										}
+									} else {
+										echo '('.$row2['price'].'元)';
 									}
 								}
 								?>
@@ -343,7 +351,6 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 	})
 
 	$(".addcart").click(function(event) {
-		
 		if($(this).is(":checked")){
 			/******************By Born*******************/
 			var mc = '';
