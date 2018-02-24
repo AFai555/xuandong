@@ -11,8 +11,8 @@
 <body style="background:url(images/left_bg.gif) repeat-y left;">
 <div class="lefter">
 	<dl>
-    	<dt>软文发布管理</dt>
-        <dd><a href="gaojian_admin.php" target="mainFrame">软文进度查询</a></dd>
+    	<!-- <dt>软文发布管理</dt>
+        <dd><a href="gaojian_admin.php" target="mainFrame">软文进度查询</a></dd> -->
         <!-- <dd><a href="weibo_admin.php" target="mainFrame">微博进度查询</a></dd>
         <dd><a href="luntan_admin.php" target="mainFrame">论坛进度查询</a></dd>
         <dd><a href="weixin_admin.php" target="mainFrame">微信进度查询</a></dd> -->
