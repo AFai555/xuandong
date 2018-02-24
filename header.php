@@ -23,7 +23,8 @@ $logo_url=_get_one('logo_up','1');
 <div class="naver">
   <ul class="wrapper" style="width: 100%;">
     <li><a href="/login.php"  target="_parent">网站首页</a></li>
-    <li><a href="admin.php?act=gj" target="_parent">新闻发布</a></li>
+    <li><a href="admin.php?act=gj" target="_parent">立即发布</a></li>
+    <li><a href="gaojian_admin.php" target="mainFrame">进度查询</a></li>
     <!-- <li><a href="admin.php?act=wb" target="_parent">微  博</a></li>
     <li><a href="admin.php?act=lt" target="_parent">论  坛</a></li>
     <li><a href="admin.php?act=wx" target="_parent">微  信</a></li> -->

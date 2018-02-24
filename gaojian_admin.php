@@ -103,7 +103,10 @@ while (!!$row=_mysql_list($_result)) {
     <td><?php echo cart_zt($row['zt'])?></td>
     <td><?php echo $row['addtime']?></td>
     <td>
-	<?php if ($row['zt']==3) echo '<a href="'.$row['get_url'].'" target="_blank">网址</a>  <a href="sees.php?id='.$row['id'].'" target="_blank">预览</a>  ';?>
+	<?php 
+        //if ($row['zt']==3) echo '<a href="'.$row['get_url'].'" target="_blank">网址</a>  <a href="sees.php?id='.$row['id'].'" target="_blank">预览</a>  ';
+        if ($row['zt']==3) echo '<a href="sees.php?id='.$row['id'].'" target="_blank">已发布，查看</a> ';
+    ?>
     
 	<?php if ($row['zt']==2) echo '<a href="sees.php?id='.$row['id'].'" target="_blank">预览</a> ';?>
     

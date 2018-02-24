@@ -60,6 +60,7 @@ if ($_POST['pn_post']=='提交网址' && isset($_POST['gid'])){
 	$mail=_get_one('mail',1);
 	$case=_get_one('meiti_case',$row['pid']);
 //******************** 配置信息 ********************************
+	/*
 	$smtpserver = $mail['name'];//SMTP服务器
 	$smtpserverport = $mail['tip'];//SMTP服务器端口
 	$smtpusermail = $mail['user'];//SMTP服务器的用户邮箱
@@ -72,9 +73,10 @@ if ($_POST['pn_post']=='提交网址' && isset($_POST['gid'])){
 	//************************ 配置信息 ****************************
 	$smtp = new smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);//这里面的一个true是表示使用身份验证,否则不使用身份验证.
 	$smtp->debug = false;//是否显示发送的调试信息
-	$state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype);
+	$state = $smtp->sendmail($smtpemailto, $smtpusermail, $mailtitle, $mailcontent, $mailtype);*/
 
 	/*ShowMsg('成功：已成功提交发布网址！',$_SERVER['HTTP_REFERER']);*/
+
 }
 
 
@@ -207,12 +209,12 @@ $row=_get_one('cart',$_GET['id']);
         </form></div></td>
     </tr>
 <?php endif ;?>
-    <tr>
+    <!-- <tr>
       <td height="35"><p class="see_con">发布网站频道</p></td>
-      <td><p class="see_con"><?php echo cart_case($row['pid'])?></p>
+      <td><p class="see_con"><?php //echo cart_case($row['pid'])?></p>
       <div class="see_con">
       <form name="p2" action="" method="post">
-      <input type="hidden" name="gidx" value="<?php echo $row['id']?>" />
+      <input type="hidden" name="gidx" value="<?php //echo $row['id']?>" />
       <label>新频道的ID：</label>
         	<input type="text" name="pidx" style="width:100px; height:20px; line-height:20px;" value="" />
             <label>新频道的会员价：</label>
@@ -221,7 +223,7 @@ $row=_get_one('cart',$_GET['id']);
         </form>
       </div>
       </td>
-    </tr>
+    </tr> -->
     <tr>
       <td height="35"><p class="see_con">费用</p></td>
       <td>
@@ -243,18 +245,18 @@ $row=_get_one('cart',$_GET['id']);
 </table>   
 </td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td height="35"><p class="see_con">附言</p></td>
-      <td><p class="see_con"><?php echo $row['beizhu']?></p></td>
+      <td><p class="see_con"><?php //echo $row['beizhu']?></p></td>
     </tr>
     <tr>
       <td height="35"><p class="see_con">网址强调</p></td>
-      <td><p class="see_con"><?php echo wz_lx($row['wangzhi'])?></p></td>
+      <td><p class="see_con"><?php //echo wz_lx($row['wangzhi'])?></p></td>
     </tr>
     <tr>
       <td height="35"><p class="see_con">截稿时间</p></td>
-      <td><p class="see_con"><?php echo jg_lx($row['jiegao'])?></p></td>
-    </tr>
+      <td><p class="see_con"><?php //echo jg_lx($row['jiegao'])?></p></td>
+    </tr> -->
     <tr>
       <td height="35"><p class="see_con">添加时间</p></td>
       <td><p class="see_con"><?php echo $row['addtime']?></p></td>

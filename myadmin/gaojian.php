@@ -159,7 +159,7 @@ $z_cb_price+=getDbName('meiti_case','cb_price',$row['pid']);
     <tr>
       <td width="10%" height="35" align="center" class="pxid"><?php echo $row['bianhao']?></td>
       <td align="center"><?php echo $row['title']?></td>
-       <td width="8%" align="center"><strong style="color:#FF0000;"><?php echo cart_member($row['uid'])?></strong></td>
+      <td width="8%" align="center"><strong style="color:#FF0000;"><?php echo cart_member($row['uid'])?></strong></td>
       <td width="15%" align="center"><?php echo cart_case($row['pid'])?></td>
       <td width="5%" align="center"><strong style="color:#FF0000;"><?php echo getDbName('meiti_case','cb_price',$row['pid'])?>元</strong></td>
       <td width="5%" align="center"><strong><?php echo $row['price']?>元</strong></td>
