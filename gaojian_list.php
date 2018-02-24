@@ -219,11 +219,11 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 								if ($_SESSION['userid']) {
 								 	if($vip['kd']=='1') { 
 										if($_SESSION['user_grade']=="钻石会员") {
-											echo '('.($row2['price']+ $vip['lv3']).'.00元)';
+											echo '('.($row2['price']+ $vip['lv3']).'元)';
 										} else if($_SESSION['user_grade']=="高级会员") {
-											echo '('.($row2['price']+ $vip['lv2']).'.00元)';
+											echo '('.($row2['price']+ $vip['lv2']).'元)';
 										} else {
-											echo '('.($row2['price']+ $vip['lv1']).'.00元)';
+											echo '('.($row2['price']+ $vip['lv1']).'元)';
 										}
 									}
 								}
