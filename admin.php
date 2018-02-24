@@ -10,7 +10,7 @@
 <meta name="description" content="中国最专业的新闻媒体发布网站，最权威的广告资源交易平台，提供优势广告资源，一直以'资源全、价格低、服务好'为宗旨服务于广大用户和营销企业" />
 </head>
 
-<frameset rows="140,*" cols="*" frameborder="no" border="0" framespacing="0">
+<frameset rows="111,*" cols="*" frameborder="no" border="0" framespacing="0">
     <frame src="top.php" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" />
     <frameset cols="152,*" frameborder="no" border="0" framespacing="0" id="frame">
         <frame src="left.php" name="leftFrame" scrolling="auto" noresize="noresize" id="leftFrame" />
