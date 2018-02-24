@@ -182,7 +182,7 @@ if ($_GET['act']=='xiugai' && isset($_POST['id'])) {
 	</div>
 
     <div class="add_buzhuo">
-    	<a href="gaojian_list">方式一：创建新的软文</a>
+    	<a href="gaojian_list.php">方式一：创建新的软文</a>
     	<a href="gaojian1_add.php" >方式二：从发布列表选择</a>
     	<a href="gaojian2_add.php" class="online">方式三：提交WORD文档稿件</a>
     	<a href="gaojian3_add.php">方式四：转载来源</a>
