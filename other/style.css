@@ -32,7 +32,6 @@ a:hover,a:active,a:focus {
 	height:57px;
 }
 .naver {
-	height:45px;
 	line-height:45px;
 	background:#08A5E0;
 }
@@ -43,14 +42,13 @@ a:hover,a:active,a:focus {
 	display:block;
 	float:left;
 	width:115.5px;
-	height:45px;
-	line-height:45px;
+	line-height:25px;
 	text-align:center;
 	font-size:16px;
 	color:#fff;
 }
 .naver ul li.cur a,.naver ul li a:hover,.naver ul li a.cur {
-	background:#FFBF4B;
+	/* background:#FFBF4B; */
 	color:#FFF;
 	text-decoration:none;
 }

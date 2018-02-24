@@ -6,6 +6,7 @@ $logo_url=_get_one('logo_up','1');
 <link rel="stylesheet" type="text/css" href="./other/style.css">
 <script src="./other/hm.js"></script><script src="./other/jquery.min.js" type="text/javascript"></script>
 <script src="./other/jquery.sslide.js" type="text/javascript"></script>
+<link href="css/button.css" rel="stylesheet" type="text/css" />
 
 <div class="header" style="padding-top: 0px;">
   <div class="wrapper" style="width: 100%;">
@@ -20,23 +21,23 @@ $logo_url=_get_one('logo_up','1');
   <!--wrapper end-->
 </div>
 
-<div class="naver" style="margin-top: -10px;">
+<div class="naver button-group" style="margin-top: -10px; width: 100%; background-color:#269ce9; ">
   <ul class="wrapper" style="width: 100%;">
-    <li><a href="/"  target="_parent">网站首页</a></li>
-    <li><a href="admin.php?act=gj" target="_parent">立即发布</a></li>
-    <li><a href="gaojian_admin.php" target="mainFrame">进度查询</a></li>
+    <li><button class="small button blue"><a href="/"  target="_parent">网站首页</a></button></li>
+    <li><button class="small button blue"><a href="admin.php?act=gj" target="_parent">立即发布</a></button></li>
+    <li><button class="small button blue"><a href="gaojian_admin.php" target="mainFrame">进度查询</a></button></li>
     <!-- <li><a href="admin.php?act=wb" target="_parent">微  博</a></li>
     <li><a href="admin.php?act=lt" target="_parent">论  坛</a></li>
     <li><a href="admin.php?act=wx" target="_parent">微  信</a></li> -->
 
    <?php if ($_SESSION['userid']!='') :?>
-        <li>[<?php echo $_SESSION['user_name']?>] <a href="loginout.php" target="_parent">退出</a></li>
+        <li><button class="small button blue"> <a href="loginout.php" target="_parent">退出 [<?php echo $_SESSION['user_name']?>]</a></button></li>
         <?php else :?>
         <li>
         &nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;
         </li>
         
-        <li><a href="login.php" target="_parent">登录</a> <a href="reg.php" target="_parent">注册</a></li>
+        <li><button class="small button blue"><a href="login.php" target="_parent">登录</a> <a href="reg.php" target="_parent">注册</a></button></li>
         <?php endif ;?>
         
     <!-- <li><a href="admin.php?act=tj" target="_parent" style="color:#F00">提交资源</a></li> -->
@@ -49,15 +50,15 @@ $logo_url=_get_one('logo_up','1');
     	<li><a href="admin.php?act=gj" target="_parent">新闻发布</a></li>
     	<li><a href="admin.php?act=dx" target="_parent">软文代写</a></li>
     	<li><a href="admin.php" target="_parent">自助发新闻后台</a></li>
-        <?php if ($_SESSION['userid']!='') :?>
-        <li>[<?php echo $_SESSION['user_name']?>] <a href="loginout.php" target="_parent">退出</a></li>
-        <?php else :?>
+        <php if ($_SESSION['userid']!='') :?>
+        <li>[<php echo $_SESSION['user_name']?>] <a href="loginout.php" target="_parent">退出</a></li>
+        <php else :?>
         <li>
         &nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;
         </li>
         
         <li><a href="login.php" target="_parent">登录</a> <a href="reg.php" target="_parent">注册</a></li>
-        <?php endif ;?>
+        <php endif ;?>
     </ul>
 </div>
 -->
