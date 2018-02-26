@@ -1,7 +1,7 @@
 //编码器通用调用
 KindEditor.ready(function(K) {
 K.create('.editor_content', {
-	width : '800px',
+	width : '900px',
 	height : '400px',
 	filterMode : false,
 	wellFormatMode : false,
