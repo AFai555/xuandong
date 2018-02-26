@@ -179,7 +179,5 @@ $z_cb_price+=getDbName('meiti_case','cb_price',$row['pid']);
   </table>
 </form>
 <div class="lipage"><?php echo _pageshow(2)?></div>
-<div class="huizong"><span class="s1">成本：<?php echo $z_cb_price?>元</span>&nbsp; | &nbsp;<span class="s2">会员费用：<?php echo $z_price?>元</span>&nbsp; | &nbsp;<span class="s3">收益：<?php echo $z_price-$z_cb_price?>元</span></div>
-</div>
 </body>
 </html>
