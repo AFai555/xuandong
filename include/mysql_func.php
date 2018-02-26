@@ -27,6 +27,7 @@ function _set_names() {
 //_query执行SQL语句,并返回结果集
 function _query($_sql) {
 	if (!$_result = mysql_query($_sql)) {
+		var_dump($_sql);
 		exit('SQL执行失败！');
 		
 	}

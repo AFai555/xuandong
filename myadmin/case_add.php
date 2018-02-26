@@ -7,7 +7,7 @@ if ($_GET['act']=='add') {
 	$data['case_url']=$_POST['case_url'];
 	$data['mid']=$_POST['mid'];
 	// $data['diquid']=$_POST['diqu'];
-	$data['cb_price']=$_POST['cb_price'];
+/*	$data['cb_price']=$_POST['cb_price'];*/
 	$data['price']=$_POST['price'];
 	// $data['lianjie']=$_POST['lianjie'];
 	// $data['shoulu']=$_POST['shoulu'];
@@ -74,10 +74,10 @@ while (!!$rs_sort=_mysql_list($_result)) {
         </select>
       </dt> -->
 
+<!--       <dt><em>成本价格：</em>
+  <input name="cb_price" type="text" id="cb_price" size="10" />
+<span class="textinput">价格只能是数字</span></dt> -->
       <dt><em>成本价格：</em>
-        <input name="cb_price" type="text" id="cb_price" size="10" />
-      <span class="textinput">价格只能是数字</span></dt>
-      <dt><em>会员价格：</em>
         <input name="price" type="text" id="price" size="10" />
       <span class="textinput">价格只能是数字</span></dt>
 

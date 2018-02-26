@@ -4,6 +4,12 @@ require 'session.php';
 
 if ($_GET['act']=='del' && isset($_GET['id'])) {
 	_query("DELETE FROM member WHERE id={$_GET['id']} LIMIT 1");
+  // 删除财务记录
+  _delete_tj("caiwu","uid={$_GET['id']}");
+  // 删除代写稿件
+  _delete_tj("daixie","uid={$_GET['id']}");
+  // 删除发布记录
+  _delete_tj("cart","uid={$_GET['id']}");
 	ShowMsg('成功：会员删除成功',$_SERVER['HTTP_REFERER']);
 	exit();
 }
