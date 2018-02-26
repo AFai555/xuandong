@@ -100,8 +100,8 @@ while (!!$rs_sort=_mysql_list($_result)) {
       <td align="center">媒体频道</td>
       <td width="14%" align="center">分类</td>
       <!-- <td width="6%" align="center">地区</td> -->
+<!--       <td width="6%" align="center">成本价</td> -->
       <td width="6%" align="center">成本价</td>
-      <td width="6%" align="center">会员价</td>
       <!-- <td width="12%" align="center">编辑QQ</td> -->
       <!-- <td width="12%" align="center">编辑电话</td> -->
       <!-- <td width="25%" align="center">备注</td> -->
@@ -122,7 +122,7 @@ while (!!$row=_mysql_list($_result)) {
       <td align="left"><div class="newstitle"><a href="<?php echo $row['link']?>" target="_blank"><?php echo $row['title']?></a> <a href="<?php echo $row['case_url']?>" target="_blank">[案例]</a></div></td>
       <td width="14%" align="center"><?php echo getMeiti($row['mid'])?></td>
       <!-- <td width="6%" align="center"><php echo getdiqu($row['diquid'])?></td> -->
-      <td width="6%" align="center"><?php echo $row['cb_price']?>元</td>
+<!--       <td width="6%" align="center"><?php echo $row['cb_price']?>元</td> -->
       <td width="6%" align="center"><?php echo $row['price']?>元</td>
       <!-- <td width="12%" align="center"><a href="tencent://message/?uin=<php echo $row['qq']?>"><img src="images/pa.gif" /></a></td> -->
       <!-- <td width="12%" align="center"><php echo $row['tel']?></td> -->
