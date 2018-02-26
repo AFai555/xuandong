@@ -48,7 +48,7 @@ $sql_seach=" WHERE uid={$_SESSION['userid']} AND zt>0".$sql_seach;
 
 <body>
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 查看软文发布进度结果</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 查看软文发布进度结果</div> -->
     <?php require 'user_top_tp.php'?>
   <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>

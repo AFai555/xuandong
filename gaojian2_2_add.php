@@ -58,7 +58,7 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
 <body>
 <form action="" method="post">
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 提交软文稿件内容</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 提交软文稿件内容</div> -->
     <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>
@@ -89,7 +89,7 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
       <tr>
         <td height="40"><p class="mc">文章标题<em>*必填</em></p></td>
         <td>
-        <p class="mc"><input name="title" type="text" size="80" maxlength="28" />
+        <p class="mc"><input name="title" type="text" size="80" maxlength="28" style="height: 25px;" />
         （标题字数应小于28个汉字）</p>
    
           </td>

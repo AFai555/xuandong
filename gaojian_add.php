@@ -86,7 +86,7 @@ if (!_get_one_tj('cart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示�
       <tr>
         <td height="40"><p class="mc">文章标题<em>*必填
 </em></p></td>
-        <td><p class="mc"><input name="title" type="text" size="80" maxlength="28" />
+        <td><p class="mc"><input name="title" type="text" size="80" maxlength="28" style="height: 25px;"/>
         （标题字数应小于28个汉字）</p></td>
       </tr>
       <tr>

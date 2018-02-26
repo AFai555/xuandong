@@ -51,7 +51,7 @@ if ($_POST['pn_post']=='确定提现'){
 <form action="" method="post">
 <input type="hidden" name="shouyi_money" value="<?php echo shouyi_money($_SESSION['userid'])?>" />
 <div class="main">
-  <div class="weizhibox">当前位置：软文代写管理 &gt;&gt; 发布代写需求</div>
+  <!-- <div class="weizhibox">当前位置：软文代写管理 &gt;&gt; 发布代写需求</div> -->
 <?php require 'user_top.php'?>
 <div class="meiti_search shouyi">提取余额到银行卡或支付宝 收益余额:<strong><?php echo shouyi_money($_SESSION['userid'])?></strong>元</div>
 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">

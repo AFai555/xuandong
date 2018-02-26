@@ -30,10 +30,10 @@ $sql_seach=" WHERE uid={$_SESSION['userid']}".$sql_seach;
 
 <body>
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 选择发布媒体</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 选择发布媒体</div> -->
     <?php require 'user_top_tp.php'?>
 <?php require 'user_top.php'?>
-    <div class="add_buzhuo"> <a href="daixie_add.php">第一步：添加并发布写作需求</a> <a href="daixie_admin.php" class="online">第三步：查看写作需求列表</a> </div>
+    <div class="add_buzhuo"> <a href="daixie_add.php">第一步：添加并发布写作需求</a> <a href="daixie_admin.php" class="online">第二步：查看写作需求列表</a> </div>
   <div class="meiti_search">
 <form action="" method="get">
     需求标题

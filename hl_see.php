@@ -14,7 +14,7 @@ $row=_get_ones('jugaohf',$_GET['id']);
 <body>
 <form action="" method="post">
 <div class="main">
-	<div class="weizhibox">当前位置：留言管理 &gt;&gt; 留言</div>
+	<!-- <div class="weizhibox">当前位置：留言管理 &gt;&gt; 留言</div> -->
     <?php require 'user_top.php'?>
      <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">
       <tr>

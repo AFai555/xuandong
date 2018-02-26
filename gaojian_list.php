@@ -182,7 +182,7 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
 
 <body>
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 新闻发布</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 新闻发布</div> -->
   <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>
@@ -289,7 +289,7 @@ $sql_seach=" WHERE hide = 0".$sql_seach;
       <tr>
         <td height="40"><p class="mc">文章标题<em>*必填
 </em></p></td>
-        <td><p class="mc"><input name="title" type="text" size="80" maxlength="28" />
+        <td><p class="mc"><input name="title" type="text" size="80" maxlength="28" style="height: 25px;" />
         （标题字数应小于28个汉字）</p></td>
       </tr>
       <tr>

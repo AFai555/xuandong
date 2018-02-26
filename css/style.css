@@ -58,9 +58,9 @@ table{ border-collapse:collapse;}
 /*lefter*/
 .lefter{ width:150px;}
 .lefter dl dt, .lefter dl dd{ height:23px; line-height:23px; border-bottom:1px solid #FFFFFF;}
-.lefter dl dt{ background:url(../images/left_dt_bg.gif) repeat-y left; color:#3E5F9B; font-weight:bold; text-indent:25px;}
+.lefter dl dt{ background:url(../images/left_dt_bg.gif) repeat-y left; color:#3E5F9B; font-weight:bold; text-indent:25px; font-size: 14px; line-height: 1.8;}
 .lefter dl dt a{ color:#3E5F9B;}
-.lefter dl dd{ color:#3E5F9B; text-indent:28px;}
+.lefter dl dd{ color:#3E5F9B; text-indent:28px; font-size: 14px; line-height: 1.8;}
 .lefter dl dd a{ color:#3E5F9B;}
 .lefter dl dd a:hover{ color:#FF0000;}
 
@@ -88,10 +88,10 @@ table{ border-collapse:collapse;}
 .meitiBox ul li{ margin-bottom:5px; color:#3E5F9B; padding:4px 8px; white-space:normal; float:left; word-wrap: break-word;}
 .meitiBox ul li a{ color:#3E5F9B;}
 .meitiBox ul li.nostyle{ border:none; background:none; color:#000000; padding:4px 0px;}
-.meitiBox ul li .site{ width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.meitiBox ul li .site{ font-size: 13px; width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .meitiBox ul li .site input:checked + span { color: red; font-weight: bold;}  
 .meitiBox ul li .site input:checked + span > a { color: red; font-weight: bold;}  
-.meitiBox .sortName{ float: left; margin-top: 7px; padding-right: 5px; width: 80px; text-align: right;}
+.meitiBox .sortName{ float: left; margin-top: 7px; margin-bottom: 8px; font-size: 13px; padding-right: 5px; width: 80px; text-align: right;}
 .meitiBox .siteBox{ float: left; width: 960px;}
 .meitiBox ul li .site p{display: inline-block;}
 .meitiBox .aBorder1{ margin: 0px 10px 5px 10px;}

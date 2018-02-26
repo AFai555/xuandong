@@ -131,7 +131,7 @@ var _hmt = _hmt || [];
 
 <body>
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 选择发布媒体</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 选择发布媒体</div> -->
   <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>

@@ -63,7 +63,7 @@ if (!_get_one_tj('wxcart',"uid={$_SESSION['userid']} AND zt=0")) ShowMsg('提示
 <body>
 <form action="" method="post">
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 提交软文稿件内容</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 提交软文稿件内容</div> -->
     <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>

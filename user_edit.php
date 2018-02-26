@@ -33,7 +33,7 @@ if ($_POST['pn_post']=='确定修改'){
 <body>
 <form action="" method="post">
 <div class="main">
-	<div class="weizhibox">当前位置：用户资料管理 &gt;&gt; 完善资料</div>
+	<!-- <div class="weizhibox">当前位置：用户资料管理 &gt;&gt; 完善资料</div> -->
  <?php require 'user_top.php'?>
   <div class="tishibox" style="color:#FF0000;">亲们，为确保您的帐号安全，请完善以下真实资料，谢谢！ </div>
     <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" bgcolor="#F1F3F9">

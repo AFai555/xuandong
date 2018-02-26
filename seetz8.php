@@ -16,7 +16,7 @@ $sql_seach=" WHERE (state=1 or state=2) and pid = {$_SESSION['userid']}".$sql_se
 
 <body>
 <div class="main">
-  <div class="weizhibox">当前位置：通知管理 &gt;&gt; 查看重要通知</div>
+  <!-- <div class="weizhibox">当前位置：通知管理 &gt;&gt; 查看重要通知</div> -->
 <?php require 'user_top.php'?>
  <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">
       <tr>

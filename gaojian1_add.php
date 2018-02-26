@@ -94,7 +94,7 @@ else alert("你选择的是工商");
 <body>
 <form action="" method="post">
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 新闻发布</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 新闻发布</div> -->
     <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>

@@ -33,13 +33,13 @@ if ($row['uid']!=$_SESSION['userid'] || $row['zt']!=1) ShowMsg('错误：您无�
 <input name="id" type="hidden" id="id" value="<?php echo $row['id']?>" />
 <input name="PreviousUrl" type="hidden" id="PreviousUrl" value="<?php echo $_SERVER['HTTP_REFERER']?>" />
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 软文稿件修改</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 软文稿件修改</div> -->
 <?php require 'user_top.php'?>
     <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">
       <tr>
         <td width="130" height="40"><p class="mc">文章标题<em>*必填
 </em></p></td>
-        <td><p class="mc"><input name="title" type="text" value="<?php echo $row['title']?>" size="80" maxlength="20" />
+        <td><p class="mc"><input name="title" type="text" value="<?php echo $row['title']?>" size="80" maxlength="20" style="height: 25px;" />
         （标题字数应小于20个汉字）</p></td>
       </tr>
       <tr>

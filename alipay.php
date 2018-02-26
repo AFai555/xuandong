@@ -12,7 +12,7 @@
 
 <body>
 <div class="main">
-  <div class="weizhibox">当前位置：我的财务管理 &gt;&gt; 我要充值</div>
+  <!-- <div class="weizhibox">当前位置：我的财务管理 &gt;&gt; 我要充值</div> -->
   <?php require 'user_top_tp.php'?>
   <?php require 'user_top.php'?>
   <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">

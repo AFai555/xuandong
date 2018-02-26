@@ -51,7 +51,7 @@ $sql_seach=" WHERE uid={$_SESSION['userid']}".$sql_seach;
 
 <body>
 <div class="main">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 查看软文发布进度结果</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 查看软文发布进度结果</div> -->
 <?php require 'user_top.php'?>
 <div class="meiti_search">
 <form action="" method="get">

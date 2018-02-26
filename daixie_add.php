@@ -47,7 +47,7 @@ if ($_POST['pn_post']=='提交代写需求'){
 <body>
 <form action="" method="post">
 <div class="main">
-  <div class="weizhibox">当前位置：软文代写管理 &gt;&gt; 发布代写需求</div>
+  <!-- <div class="weizhibox">当前位置：软文代写管理 &gt;&gt; 发布代写需求</div> -->
 <?php require 'user_top_tp.php'?>
 <?php require 'user_top.php'?>
     <div class="add_buzhuo">
@@ -59,7 +59,7 @@ if ($_POST['pn_post']=='提交代写需求'){
 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#C9D3E9" class="xuqiu">
       <tr>
         <td width="120" height="40"><p class="mc">需求标题<em>*必填</em></p></td>
-        <td><p class="mc"><input name="title" type="text" size="60" maxlength="20" />
+        <td><p class="mc"><input name="title" type="text" size="60" maxlength="20" style="height: 25px;" />
         （示例：XXX网推广一期软文代写需求） </p></td>
       </tr>
       <tr>

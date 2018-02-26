@@ -111,7 +111,7 @@ if ($_GET['act']=='xiugai' && isset($_POST['id'])) {
 <body>
 
 <div class="main" style="margin-bottom: 90px;">
-  <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 提交软文稿件内容</div>
+  <!-- <div class="weizhibox">当前位置：软文发布管理 &gt;&gt; 提交软文稿件内容</div> -->
     <?php require 'user_top_tp.php'?>
 <?php require 'user_top_gg.php'?>
 <?php require 'user_top.php'?>
