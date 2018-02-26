@@ -6,22 +6,21 @@ if ($_GET['act']=='add') {
 	$data['link']=$_POST['link'];
 	$data['case_url']=$_POST['case_url'];
 	$data['mid']=$_POST['mid'];
-	$data['diquid']=$_POST['diqu'];
+	// $data['diquid']=$_POST['diqu'];
 	$data['cb_price']=$_POST['cb_price'];
 	$data['price']=$_POST['price'];
-	$data['lianjie']=$_POST['lianjie'];
-	$data['shoulu']=$_POST['shoulu'];
-	$data['beizhu']=$_POST['beizhu'];
-	$data['qq']=$_POST['qq'];
-	$data['tel']=$_POST['tel'];
-	$data['addtime']=_nowtime();	
-	$data['hide']=$_POST['hide'];	
-	$data['isbao']=$_POST['bao'];
+	// $data['lianjie']=$_POST['lianjie'];
+	// $data['shoulu']=$_POST['shoulu'];
+	// $data['beizhu']=$_POST['beizhu'];
+	// $data['qq']=$_POST['qq'];
+	// $data['tel']=$_POST['tel'];
+	// $data['addtime']=_nowtime();	
+	// $data['hide']=$_POST['hide'];	
+	// $data['isbao']=$_POST['bao'];
 	
 	if ($data['title']=='') ShowMsg('错误：频道名称不能为空','-1');
 	if (!is_numeric($data['cb_price'])) ShowMsg('错误：价格只能是数字','-1');
 	if (!is_numeric($data['price'])) ShowMsg('错误：价格只能是数字','-1');
-	
 	_insert('meiti_case',$data);
 	ShowMsg('成功：案例添加成功，继续添加','case_add.php?mid='.$data['mid']);
 }
