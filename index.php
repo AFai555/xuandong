@@ -1,6 +1,14 @@
 <?php
 require './include/conn.php';
 
+if ($_GET['u']!=''){
+	if ($row=_get_one_tj('member',"my_username='{$_GET['u']}'")){
+		$_SESSION['referee']=$row['id'];
+	}else{
+		$_SESSION['referee']=0;
+	}
+}
+
 if ($_SESSION['userid']) {
 	_location2(NULL,'admin.php?act=gj');
 }

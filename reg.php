@@ -8,6 +8,7 @@ if ($_POST['pn_post']=='注册'){
 	$data['my_password']=md5($data['my_password']);
 	$data['regtime']=_nowtime();
 	$data['referee']=$_SESSION['referee'];
+	$data['grade']="普通会员";
 	if (_get_one_tj('member',"my_username='{$data['my_username']}'")){
 		ShowMsg('提示：该帐号已存在，请重新注册！','-1');
 	}
@@ -20,6 +21,7 @@ if ($_POST['pn_post']=='注册'){
 		$_SESSION['user_name']=$row['my_username'];
 		if (time()-strtotime($row['regtime'])>$config_time){
 			$_SESSION['referee']=0;
+
 		}else{
 			$_SESSION['referee']=$row['referee'];
 		}
