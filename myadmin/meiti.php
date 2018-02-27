@@ -4,6 +4,7 @@ require 'session.php';
 
 if ($_GET['act']=='del' && isset($_GET['id'])) {
 	_query("DELETE FROM meiti WHERE id={$_GET['id']} LIMIT 1");
+  _delete_tj("meiti_case","mid={$_GET['id']}");
 	ShowMsg('成功：友情链接删除','meiti.php');
 	exit();
 }

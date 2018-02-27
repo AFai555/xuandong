@@ -19,7 +19,7 @@ if ($_GET['act']=='add') {
 	// $data['isbao']=$_POST['bao'];
 	
 	if ($data['title']=='') ShowMsg('错误：频道名称不能为空','-1');
-	if (!is_numeric($data['cb_price'])) ShowMsg('错误：价格只能是数字','-1');
+/*	if (!is_numeric($data['cb_price'])) ShowMsg('错误：价格只能是数字','-1');*/
 	if (!is_numeric($data['price'])) ShowMsg('错误：价格只能是数字','-1');
 	_insert('meiti_case',$data);
 	ShowMsg('成功：案例添加成功，继续添加','case_add.php?mid='.$data['mid']);
