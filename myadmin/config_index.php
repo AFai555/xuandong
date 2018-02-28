@@ -8,7 +8,7 @@ if ($_GET['act']=='xiugai') {
 	if ($_POST['config_alipay_pid']=='') ShowMsg('错误：合作者身份（PID）不能为空','-1');
 	if ($_POST['config_alipay_key']=='') ShowMsg('错误：安全校验码（Key）不能为空','-1');
 	if (!is_numeric($_POST['config_tixianmoney'])) ShowMsg('错误：最低提现金额只能是数字','-1');
-	if ($_POST['config_meiti']=='') ShowMsg('错误：综合媒体不能为空','-1');
+	// if ($_POST['config_meiti']=='') ShowMsg('错误：综合媒体不能为空','-1');
 	if (!is_numeric($_POST['config_daixie_price'])) ShowMsg('错误：代写金额只能是数字','-1');
 
 	$bodyhtml='<?php';	
@@ -156,7 +156,7 @@ if ($_GET['act']=='xiugai') {
         <span class="textinput"></span></dt>
         
       <!-- <dt><em>综合门户媒体：</em>
-        <textarea name="config_meiti" cols="100" rows="6" id="config_meiti"><?php echo $config_meiti?></textarea>
+        <textarea name="config_meiti" cols="100" rows="6" id="config_meiti"><?php //echo $config_meiti?></textarea>
         <span class="textareatxt">每个关键词之间用、分开，例如 ：搜狐、新浪、腾讯、网易、凤凰网</span></dt> -->
       <dt>
         <input type="submit" value="保存" class="lbnt" />
